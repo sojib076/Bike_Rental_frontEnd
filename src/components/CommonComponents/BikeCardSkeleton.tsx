@@ -36,9 +36,9 @@ const BikeCardSkeleton = () => {
         <div>
           <Skeleton className="h-4 w-16 bg-gray-700" />
           <Skeleton className="h-6 w-24 mt-2 bg-gray-700" />
-          <Skeleton className="h-3 w-32 mt-1 bg-red-600" />
+          <Skeleton className="h-3 w-32 mt-1 bg-green-600" />
         </div>
-        <Skeleton className="h-8 w-full bg-red-600" />
+        <Skeleton className="h-8 w-full bg-greeb-600" />
       </div>
     </div>
   );

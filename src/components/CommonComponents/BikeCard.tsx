@@ -1,11 +1,7 @@
 
 import { FC } from "react";
 import { FaCog, FaMotorcycle, FaRegCalendarAlt, FaTachometerAlt } from "react-icons/fa";
-
-import { Button } from "../ui/button";
-import { useCreateRentalMutation } from "@/redux/api/api";
-import { toast } from "sonner";
-import ButtonLoadin from "./ButtonLoadin";
+import { Link } from "react-router-dom";
 
 interface BikeCardProps {
   id: string;
@@ -29,30 +25,11 @@ const BikeCard: FC<BikeCardProps> = ({
   availability,
   description,
   brand,
-  model, year, maxSpeed, price ,refetch}
+  model, year, maxSpeed, price,  }
 ) => {
 
 
-  const [createRental, { isLoading }] = useCreateRentalMutation();
-
-  const handleRentNow = async () => {
-    try {
-        const result =  await createRental({
-           bikeId: id ,
-          startTime: new Date().toISOString(),
-          
-         });
-          if(result.data){
-            toast.success('Bike rented successfully');
-             refetch()
-          }else if (result.error){
-            toast.error('Bike is Already Rented');
-          }
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
   return (
     <div className="  relative w-full lg:h-[580px] bg-black cursor-pointer lg:p-5 px-3">
@@ -69,11 +46,13 @@ const BikeCard: FC<BikeCardProps> = ({
         description.length > 35
           ? description.substring(0, 35) + '...'
           : description
-      } 
+      }
       </p>
-      <p className="text-white lg:flex hidden"> 
+      <p className="text-white lg:flex hidden">
         {
-          description
+          description.length > 10
+            ? description.substring(0, 50) + '...'
+            : description
         }
       </p>
       <div className="bg-black text-white mt-2">
@@ -115,11 +94,15 @@ const BikeCard: FC<BikeCardProps> = ({
           <p className="text-2xl font-bold">${price}</p>
           <p className="text-red-600 text-sm">Price can be changed</p>
         </div>
-<Button onClick={handleRentNow} className=" text-on-dark  bg-red-400 text-center text-sm font-bold py-2 px-4">
-  {
-    isLoading ? <ButtonLoadin/> : 'Rent Now'
-  }
-</Button>
+      <Link to={`/bike/${id}`} 
+      
+      className=" text-on-dark  bg-green-600  text-center text-sm font-bold py-2 px-4 
+        smoothingAnimation hover:bg-green-700 transition-colors duration-300
+      "
+      > 
+      
+          View Details
+        </Link>
 
 
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
@@ -20,6 +21,7 @@ import BikeDetails from "./Pages/BikeDetails.tsx";
 import Rentals from "./Pages/User/Rentals.tsx";
 import AddBike from "./Pages/Admin/AddBike.tsx";
 import Allbikes from "./Pages/Admin/Allbikes.tsx";
+import BikeList from "./Pages/AllBikes.tsx";
 
 const router = createBrowserRouter([
   {
@@ -38,10 +40,20 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+
+
+      {
+        path: "/allbikes",
+        element: <BikeList />,
+      },
         // product routes
         {
             path: "/bike/:id",
-            element:<BikeDetails/>
+            loader: ({ params }: any) =>
+              fetch(
+                `https://bike-rental-backend-delta.vercel.app/api/bikes/${params.id}`,
+              ).then((res) => res.json()),
+            element:(<BikeDetails />)
             
         },
 

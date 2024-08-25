@@ -18,12 +18,14 @@ const Header = () => {
         { path: '/about', label: 'About' },
         { path: '/login', label: 'Login' },
         { path: '/signup', label: 'Signup' },
+        {path:'/allbikes',label:'All Bikes'}
     ];
     
     const authLinks = [
         { path: '/home', label: 'Home' },
         { path: '/about', label: 'About' },
         { path: '/dashboard', label: 'Dashboard' },
+        {path:'/allbikes',label:'All Bikes'}
     ];
     const links = auth ? authLinks : guestLinks;
 
