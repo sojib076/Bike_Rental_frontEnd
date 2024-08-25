@@ -1,0 +1,31 @@
+.text-primary {
+  @apply text-gray-900; 
+}
+
+.text-second{
+  @apply text-gray-500; 
+}
+
+.text-accent {
+  @apply text-indigo-600;
+}
+
+.text-on-dark {
+  @apply text-white; 
+}
+
+.text-warning {
+  @apply text-yellow-500; 
+}
+
+.text-success {
+  @apply text-green-500; 
+}
+
+.text-error {
+  @apply text-red-500; 
+}
+
+.text-info {
+  @apply text-blue-500;
+}
