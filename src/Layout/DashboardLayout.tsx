@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
     return (
-        <div>
+        <div className="dark:bg-black">
 
             <div>
                 <Header></Header>

@@ -52,6 +52,8 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'dark-background': '#121212', // or your preferred dark background color
+        'primary-dark': '#BB86FC',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,6 +83,7 @@ module.exports = {
           fadeIn: 'fadeIn 0.5s ease-out forwards',
           fadeOut: 'fadeOut 0.5s ease-out forwards',
         },
+        
       
     },
 
