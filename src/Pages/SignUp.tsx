@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from 'lucide-react';
 import { useSignUpMutation } from '@/redux/api/api';
