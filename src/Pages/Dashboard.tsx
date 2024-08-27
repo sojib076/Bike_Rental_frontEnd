@@ -20,10 +20,10 @@ const Dashboard = () => {
     // Assuming `data` contains a `name` property for personalization
     return (
         <div className="flex flex-col items-center justify-center h-screen p-4">
-            <h1 className="text-3xl font-bold text-gray-800">
+            <h1 className="text-3xl font-bold text-gray-800  dark:text-white  ">
                 Welcome back, {data.data.name}!
             </h1>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-gray-600 dark:text-white  ">
                Navigaate through the sidebar to access different features
             </p>
           <Link to="/dashboard/profile">

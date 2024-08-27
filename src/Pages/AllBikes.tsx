@@ -32,13 +32,20 @@ const BikeList = () => {
     });
 
     return (
-        <div className="mt-20">
-            <h1 className="lg:text-[40px] leading-[48px] font-semibold uppercase lg:mt-5 headerColor text-center">
+        <div className="mt-20 dark:mt-[65px]  dark:bg-black bg-white ">
+            <h1 className="lg:text-[40px] leading-[48px] font-semibold uppercase 
+            dark:mt-0
+            lg:mt-5 
+            dark:text-white 
+            headerColor text-center">
                 Available Bikes
             </h1>
 
             {/* Modern Filter Section */}
-            <div className="flex flex-col md:flex-row justify-center lg:space-x-4 mt-4 lg:mt-10 flex-wrap gap-4 w-[70%] mx-auto">
+            <div className="flex flex-col 
+            md:flex-row justify-center lg:space-x-4 mt-4 lg:mt-10 flex-wrap 
+            gap-4 w-[70%] mx-auto
+            ">
                 <div className="relative w-full md:w-auto">
                     <FaMotorcycle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                     <input

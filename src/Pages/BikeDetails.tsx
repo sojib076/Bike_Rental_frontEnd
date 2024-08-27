@@ -49,7 +49,7 @@ const BikeDetails = () => {
   };
 
   return (
-    <div className="px-4 py-12 md:py-16 lg:py-20 lg:px-20 lg:mt-10 mt-0">
+    <div className="px-4 py-12 md:py-16 lg:py-20 lg:px-20 lg:mt-10 mt-0 dark:bg-black  ">
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
         <div className="mt-10 lg:mt-0">
           <img
