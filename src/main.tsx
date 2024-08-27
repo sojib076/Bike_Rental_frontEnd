@@ -22,6 +22,9 @@ import Rentals from "./Pages/User/Rentals.tsx";
 import AddBike from "./Pages/Admin/AddBike.tsx";
 import Allbikes from "./Pages/Admin/Allbikes.tsx";
 import BikeList from "./Pages/AllBikes.tsx";
+import ReturnBikes from "./Pages/Admin/Returnbikes.tsx";
+import NotFound from "./Pages/NotFound.tsx";
+import AllUsers from "./Pages/Admin/Allusers.tsx";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +71,7 @@ const router = createBrowserRouter([
       }
     ],
   },
+  // Dashboard routes
   {
     path: "/dashboard",
     element: <PrivateRoute> <DashboardLayout />  </PrivateRoute >,
@@ -94,9 +98,24 @@ const router = createBrowserRouter([
         path: "allbikes",
         element: <Allbikes/>
       },
-
+      {
+        path: "allusers",
+        element: <AllUsers/>
+      },
+      {
+        path: "returnbikes",
+        element: <ReturnBikes/>
+      }
+ // not found route
+    
     ]
+   
   }
+  ,{
+    path: "*",
+    element: <NotFound/>
+
+}
 ]);
   
 

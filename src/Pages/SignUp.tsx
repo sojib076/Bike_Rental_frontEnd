@@ -8,6 +8,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import { useSignUpMutation } from '@/redux/api/api';
 
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,6 +16,7 @@ import { toast } from 'sonner';
 
 
 const Signup = () => {
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -42,9 +44,10 @@ const Signup = () => {
         try {
            await signUp(formData).unwrap();
             toast.success('Signup Successful');
+            navigate('/login');
           
         } catch (error) {
-            console.error("Signup failed:", error);
+            toast.error('Error Signing Up');
           
         }
     };

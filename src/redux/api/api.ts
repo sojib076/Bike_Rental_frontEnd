@@ -28,6 +28,7 @@ export const baseApi = createApi({
       query: () => 'users/me',
       providesTags: ['User'],
     }),
+
     
     updateProfile: builder.mutation({
       query: (body) => ({
@@ -36,8 +37,31 @@ export const baseApi = createApi({
         body,
       }),
       invalidatesTags: ['User'],
-     
     }),
+
+ 
+    updateUserRole: builder.mutation({
+        query: (id) => ({
+          url: `users/${id}/role`,
+          method: 'PUT',
+        }),
+    }),
+    GetAllUsers: builder.query({
+      query: () => 'users/allusers',
+      providesTags: ['User'],
+    }),
+    deleteUsers: builder.mutation({
+      query: (id) => ({
+        url: `users/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['User'],
+    }),
+
+
+
+
+
     // bikes api endpoint
     getBikes: builder.query({
       query: () => 'bikes',
@@ -62,6 +86,15 @@ export const baseApi = createApi({
       invalidatesTags: ['Bikes'],
     }),
 
+    updateBike: builder.mutation({
+      query: ({body,id}) => ({
+        url: `bikes/${id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['User'],
+     
+    }),
 
 
     // rental api endpoint
@@ -79,11 +112,39 @@ export const baseApi = createApi({
 
     }),
 
+    // '/:id/return'
+
+    returnRental: builder.mutation({
+      query: (id) => ({
+        url: `rentals/${id}/return`,
+        method: 'PUt',
+      }),
+      invalidatesTags: ['User'],
+    }),
+
+
+
+
+
+
+    payRental: builder.mutation({
+      query: (body) => ({
+        url: `rentals/fullpayment`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['User'],
+    }),
+
 
   }),
 });
 
-export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdateProfileMutation,useGetBikesQuery,useCreateRentalMutation ,useGetAllRentalsQuery,useCreateBikesMutation,useDeleteBikesMutation} = baseApi;
+export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdateProfileMutation,useGetBikesQuery,useCreateRentalMutation ,useGetAllRentalsQuery,useCreateBikesMutation,useDeleteBikesMutation, usePayRentalMutation,
+  useReturnRentalMutation,useUpdateUserRoleMutation ,
+  useGetAllUsersQuery,useUpdateBikeMutation, useDeleteUsersMutation,
+
+ } = baseApi;
 
 // "Rental Routes": {
 //       "Create Rental": {

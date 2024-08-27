@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Nav } from "./nav";
-import { ChevronRight, Inbox,LucideIcon, PlusCircle,User,DollarSign ,Monitor} from "lucide-react";
+import { ChevronRight, Inbox,LucideIcon, PlusCircle,User,DollarSign ,Monitor,BrickWallIcon,User2} from "lucide-react";
 import { Button } from "./button";
+
 
 
 const Sidenavbar = () => {
@@ -44,6 +45,17 @@ const Sidenavbar = () => {
       title: "All Bikes",
       to: "/dashboard/allbikes",
       icon: Monitor,
+      variant: "default",
+    },
+    {
+      title: "Return Bikes",
+      to: "/dashboard/returnbikes",
+      icon: BrickWallIcon,
+      variant: "default",
+    } ,{
+      title: "All Users",
+      to: "/dashboard/allusers",
+      icon: User2,
       variant: "default",
     }
   
