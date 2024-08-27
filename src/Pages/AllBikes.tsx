@@ -16,7 +16,7 @@ const BikeList = () => {
         availability: "",
     });
 
-    const handleFilterChange = (e) => {
+    const handleFilterChange = (e:any) => {
         setFilters({
             ...filters,
             [e.target.name]: e.target.value,
@@ -85,21 +85,17 @@ const BikeList = () => {
                         .map((_, index) => <BikeCardSkeleton key={index} />)
                     : filteredBikes?.map((bike:any) => (
                         <BikeCard
-                            key={bike._id}
-                            id={bike._id}
-                            bikeName={bike.name}
-                            imageUrl={
-                                "https://autobike.templaza.net/wp-content/uploads/2023/04/baptiste-david-XfbjTaxSnuw-unsplash.jpg"
-                            }
-                            availability={bike.isAvailable}
-                            description={bike.description}
-                            brand={bike.brand}
-                            model={bike.model}
-                            year={bike.year}
-                            maxSpeed={bike.cc}
-                            price={bike.pricePerHour}
-                            refetch={refetch}
-                        />
+                                            id={bike._id}
+                                            bikeName={bike.name}
+                                            imgageurl={bike.imgageurl}
+                                            availability={bike.isAvailable}
+                                            description={bike.description}
+                                            brand={bike.brand}
+                                            model={bike.model}
+                                            year={bike.year}
+                                            maxSpeed={bike.cc}
+                                            price={bike.pricePerHour} refetch={refetch}
+                                        />
                     ))}
             </div>
         </div>

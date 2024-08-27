@@ -18,6 +18,7 @@ type FormState = {
   year: number;
   model: string;
   brand: string;
+  imgageurl: string;
 };
 const AddBikePage = () => {
   const [createbike, { isLoading }] = useCreateBikesMutation();
@@ -26,6 +27,7 @@ const AddBikePage = () => {
   const [formData, setFormData] = useState<FormState>({
     name: '',
     description: '',
+    imgageurl: '',
     pricePerHour: 0,
     isAvailable: true,
     cc: 0,
@@ -149,6 +151,18 @@ const AddBikePage = () => {
                 name="brand"
                 type="text"
                 value={formData.brand}
+                onChange={handleChange}
+                placeholder="Enter bike brand"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="brand">Image url </Label>
+              <Input
+                id="imgageurl"
+                name="imgageurl"
+                type="text"
+                value={formData.imgageurl}
                 onChange={handleChange}
                 placeholder="Enter bike brand"
                 required

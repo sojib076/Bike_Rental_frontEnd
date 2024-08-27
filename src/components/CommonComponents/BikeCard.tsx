@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 interface BikeCardProps {
   id: string;
   bikeName: string;
-  imageUrl: string;
+  imgageurl: string;
   availability: boolean;
   description: string;
   brand: string;
@@ -21,7 +21,7 @@ interface BikeCardProps {
 const BikeCard: FC<BikeCardProps> = ({
   id,
   bikeName,
-  imageUrl,
+  imgageurl,
   availability,
   description,
   brand,
@@ -37,7 +37,7 @@ const BikeCard: FC<BikeCardProps> = ({
         <h1 className="text-white lg:text-xl text-sm font-extrabold">{bikeName}</h1>
       </div>
       <div className="relative my-2 overflow-hidden">
-        <img src={imageUrl} alt={bikeName} className="w-full" />
+        <img src={imgageurl} alt={bikeName} className="w-full" />
         <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${availability ? 'bg-green-600' : 'bg-red-600'}`}>
           {availability ? 'Available' : 'Not Available'}
         </div>

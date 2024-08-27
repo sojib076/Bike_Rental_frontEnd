@@ -25,6 +25,9 @@ import BikeList from "./Pages/AllBikes.tsx";
 import ReturnBikes from "./Pages/Admin/Returnbikes.tsx";
 import NotFound from "./Pages/NotFound.tsx";
 import AllUsers from "./Pages/Admin/Allusers.tsx";
+import AdminRoute from "./PrivateRoutes/AdminRoute.tsx";
+import UserRoute from "./PrivateRoutes/UserRoute.tsx";
+import UpdateBike from "./Pages/Admin/UpdateBike.tsx";
 
 const router = createBrowserRouter([
   {
@@ -84,28 +87,42 @@ const router = createBrowserRouter([
         path :"profile",
         element:<Profile/>
       },
+
       {
         path: "rentals",
-        element:<Rentals/>
+        element: <UserRoute><Rentals></Rentals> </UserRoute>
       },
 
       // Admin routes
+
+
       {
         path: "addbike",
-        element: <AddBike/>
+        element: <AdminRoute><AddBike/></AdminRoute>
       },
       {
         path: "allbikes",
-        element: <Allbikes/>
+        element: <AdminRoute><Allbikes/></AdminRoute>
       },
       {
         path: "allusers",
-        element: <AllUsers/>
+        element: <AdminRoute><AllUsers/></AdminRoute>
       },
+        {
+          path: "updatebike/:id",
+          loader: ({ params }: any) =>
+            fetch(
+              `https://bike-rental-backend-delta.vercel.app/api/bikes/${params.id}`,
+            ).then((res) => res.json()),
+            
+          element: <AdminRoute><UpdateBike/></AdminRoute>
+        },
+       
       {
         path: "returnbikes",
-        element: <ReturnBikes/>
+        element: <AdminRoute><ReturnBikes /></AdminRoute>
       }
+
  // not found route
     
     ]

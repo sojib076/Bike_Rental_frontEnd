@@ -6,12 +6,21 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
 import ButtonLoadin from "@/components/CommonComponents/ButtonLoadin";
+import { Link } from "react-router-dom";
+import { FaMotorcycle, FaSearch } from "react-icons/fa";
+import { BsCheckCircle } from "react-icons/bs";
 
 const AllBikes = () => {
     const { data, isLoading, refetch } = useGetBikesQuery(undefined, {
         refetchOnFocus: true,
         refetchOnReconnect: true,
         refetchOnMountOrArgChange: true,
+    });
+
+    const [filters, setFilters] = useState({
+        brand: "",
+        model: "",
+        availability: "",
     });
 
     const [deletingBikeId, setDeletingBikeId] = useState<string | null>(null);
@@ -48,10 +57,65 @@ const AllBikes = () => {
         toast.error("Error Deleting");
     }
 
+    const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        setFilters({
+            ...filters,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const filteredData = data?.data?.filter((bike: any) => {
+        return (
+            (!filters.brand || bike.brand.toLowerCase().includes(filters.brand.toLowerCase())) &&
+            (!filters.model || bike.model.toLowerCase().includes(filters.model.toLowerCase())) &&
+            (!filters.availability || String(bike.isAvailable) === filters.availability)
+        );
+    });
+
     return (
         <div className="p-6">
             <h2 className="text-2xl font-semibold mb-4">All Bikes</h2>
-            <Table>
+
+            {/* Filter Inputs */}
+            <div className="flex flex-col md:flex-row justify-center lg:space-x-4 mt-4 lg:mt-10 flex-wrap gap-4 w-[70%] mx-auto">
+                <div className="relative w-full md:w-auto">
+                    <FaMotorcycle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                    <input
+                        type="text"
+                        name="brand"
+                        value={filters.brand}
+                        onChange={handleFilterChange}
+                        placeholder="Filter by Brand"
+                        className="input-filter w-full md:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+                <div className="relative w-full md:w-auto">
+                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                    <input
+                        type="text"
+                        name="model"
+                        value={filters.model}
+                        onChange={handleFilterChange}
+                        placeholder="Filter by Model"
+                        className="input-filter w-full md:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+                <div className="relative w-full md:w-auto">
+                    <BsCheckCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                    <select
+                        name="availability"
+                        value={filters.availability}
+                        onChange={handleFilterChange}
+                        className="select-filter w-full md:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="">All</option>
+                        <option value="true">Available</option>
+                        <option value="false">Unavailable</option>
+                    </select>
+                </div>
+            </div>
+
+            <Table className="mt-6">
                 <TableHeader>
                     <TableRow>
                         <TableHead>Name</TableHead>
@@ -64,12 +128,12 @@ const AllBikes = () => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {(!data?.data || data.data.length === 0) ? (
+                    {(!filteredData || filteredData.length === 0) ? (
                         <TableRow>
                             <TableCell colSpan={7} className="text-center">No Bikes Found</TableCell>
                         </TableRow>
                     ) : (
-                        data.data.map((bike: any) => (
+                        filteredData.map((bike: any) => (
                             <TableRow key={bike._id}>
                                 <TableCell>{bike.name}</TableCell>
                                 <TableCell>${bike.pricePerHour.toFixed(2)}</TableCell>
@@ -78,13 +142,16 @@ const AllBikes = () => {
                                 <TableCell>{bike.model}</TableCell>
                                 <TableCell>{bike.brand}</TableCell>
                                 <TableCell>
-                                    <Button
-                                        onClick={() => console.log(`Update bike ${bike._id}`)}
-                                        variant="outline"
-                                        className="mr-2 hover:scale-90 smoothAnimation my-4"
-                                    >
-                                        Update
-                                    </Button>
+                                    <Link to={`/dashboard/updatebike/${bike._id}`}>
+                                        <Button
+                                            onClick={() => console.log(`Update bike ${bike._id}`)}
+                                            variant="outline"
+                                            className="mr-2 hover:scale-90 smoothAnimation my-4"
+                                        >
+                                            Update
+                                        </Button>
+                                    </Link>
+
                                     <Button
                                         className="hover:scale-90 smoothAnimation mt-5 px-3"
                                         onClick={() => handleDeleteClick(bike)}

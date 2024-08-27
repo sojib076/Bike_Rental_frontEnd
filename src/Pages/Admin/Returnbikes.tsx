@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import Loading from "@/components/CommonComponents/Loading";
 import { toast } from "sonner";
 
-import { useGetAllRentalsQuery, useReturnRentalMutation } from "@/redux/api/api";
+import { useAllrentalbikeQuery, useReturnRentalMutation } from "@/redux/api/api";
 
 const ReturnBikes = () => {
-  const { data, isLoading, refetch } = useGetAllRentalsQuery(undefined);
+  const { data, isLoading, refetch } = useAllrentalbikeQuery(undefined);
+console.log(data?.data);
 
   const [returnRental] = useReturnRentalMutation();
 

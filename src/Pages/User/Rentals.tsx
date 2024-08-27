@@ -27,7 +27,11 @@ const RentalList = ({ rentals, showPayButton = false, handlePay }: { rentals: Re
             <p className="font-medium">Total: ${rental.totalCost}</p>
           </div>
           {showPayButton && handlePay && (
-            <Button onClick={() => handlePay(rental.paymentId, rental.totalCost)}>Pay</Button>
+            <Button onClick={() => handlePay(rental.paymentId, rental.totalCost)}
+
+            disabled={rental.totalCost === 0}
+            
+            >Pay</Button>
           )}
         </CardContent>
       </Card>

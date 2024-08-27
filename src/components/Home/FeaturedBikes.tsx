@@ -15,6 +15,7 @@ type FeaturedBikesProps = {
     year: number,
     model: string,
     brand: string,
+    imgageurl: string
 
 };
 
@@ -25,6 +26,8 @@ const FeaturedBikes = () => {
     const bikes = data?.data as FeaturedBikesProps[];
 
     const availavleBikes = bikes;
+
+    console.log(availavleBikes);
 
 
 
@@ -58,7 +61,7 @@ const FeaturedBikes = () => {
                                         <BikeCard
                                             id={bike._id}
                                             bikeName={bike.name}
-                                            imageUrl={'https://autobike.templaza.net/wp-content/uploads/2023/04/baptiste-david-XfbjTaxSnuw-unsplash.jpg'}
+                                            imgageurl={bike.imgageurl}
                                             availability={bike.isAvailable}
                                             description={bike.description}
                                             brand={bike.brand}

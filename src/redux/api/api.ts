@@ -92,7 +92,7 @@ export const baseApi = createApi({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: ['User'],
+      invalidatesTags: ['Bikes'],
      
     }),
 
@@ -122,6 +122,9 @@ export const baseApi = createApi({
       invalidatesTags: ['User'],
     }),
 
+    allrentalbike: builder.query({
+      query: () => 'rentals/allrentalbike',
+    }),
 
 
 
@@ -142,7 +145,7 @@ export const baseApi = createApi({
 
 export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdateProfileMutation,useGetBikesQuery,useCreateRentalMutation ,useGetAllRentalsQuery,useCreateBikesMutation,useDeleteBikesMutation, usePayRentalMutation,
   useReturnRentalMutation,useUpdateUserRoleMutation ,
-  useGetAllUsersQuery,useUpdateBikeMutation, useDeleteUsersMutation,
+  useGetAllUsersQuery,useUpdateBikeMutation, useDeleteUsersMutation,useAllrentalbikeQuery,
 
  } = baseApi;
 

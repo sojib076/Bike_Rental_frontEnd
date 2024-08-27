@@ -8,7 +8,11 @@ import Loading from "@/components/CommonComponents/Loading";
 import { useDeleteUsersMutation, useGetAllUsersQuery, useUpdateUserRoleMutation } from "@/redux/api/api";
 
 const AllUsers = () => {
-    const { data, isLoading,refetch } = useGetAllUsersQuery(undefined)
+    const { data, isLoading,refetch } = useGetAllUsersQuery(undefined,{
+        refetchOnMountOrArgChange: true,
+        refetchOnFocus: true,
+        refetchOnReconnect: true,
+    })
 
     const [deleteUser] = useDeleteUsersMutation();
     const [promoteUserToAdmin] = useUpdateUserRoleMutation();
@@ -31,8 +35,14 @@ const AllUsers = () => {
     };
 
     const handlePromote = async (userId: string) => {
-        promoteUserToAdmin(userId);
-        refetch()
+        try {
+            promoteUserToAdmin(userId);
+            toast.success("User Promoted Successfully");
+            refetch();
+        } catch (error) {
+            toast.error("Error Promoting User");
+        }
+        
     };
     return (
         <div className="p-6">
