@@ -23,7 +23,6 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
-    const [role, setRole] = useState('user');
     const [showPassword, setShowPassword] = useState(false);
     const [signUp, { isLoading }] = useSignUpMutation();  
 
@@ -38,7 +37,7 @@ const Signup = () => {
             password,
             phone,
             address,
-            role,
+            role: 'user',
         };
         
         try {
@@ -53,8 +52,8 @@ const Signup = () => {
     };
 
     return (
-        <div className="">
-            <div className="font-[Oswald] flex lg:items-center justify-center lg:mt-20 mt-16">
+        <div className=" dark:bg-black bg-white">
+            <div className="font-[Oswald] flex lg:items-center justify-center lg:mt-20 dark:mt-16 mt-16">
                 <Card>
                     <CardContent className='lg:w-[500px] w-[55vh] py-5'>
                         <div className="space-y-2">
@@ -121,21 +120,7 @@ const Signup = () => {
                                     onChange={(e) => setAddress(e.target.value)}
                                 />
                             </div>
-                            <div className="space-y-2">
-                                <Label>Role (optional)</Label>
-                                <Select onValueChange={(value) => setRole(value)}>
-                                    <SelectTrigger aria-label="Role">
-                                        <SelectValue placeholder="Select your Role" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectLabel>All Roles</SelectLabel>
-                                            <SelectItem value="user">User</SelectItem>
-                                            <SelectItem value="admin">Admin</SelectItem>
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+                          
 
                             <Button
                                 type="button"
