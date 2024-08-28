@@ -2,12 +2,21 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from "../ui/button";
 import SearchBar from "./Seacrchform";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Banner = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: false,
+        });
+      }, []);
+    
     return (
         <div className="w-full lg:h-screen mx-auto" id="top">
-            {/* Search Bar */}
-
-
+           
             <Carousel>
                 <CarouselContent>
                     <CarouselItem>
@@ -19,20 +28,40 @@ const Banner = () => {
                             <div className="relative lg:container mx-auto h-full flex items-center">
                                 <div className="lg:max-w-[90%] lg:p-6">
                                     <div className="lg:w-[70%]">
-                                        <h1 className="lg:text-xl text-sm font-extrabold text-center lg:text-left text-white dark:text-gray-300">
+                                        <h1 
+                                            data-aos="fade-up"
+                                        
+                                        className="lg:text-xl text-sm font-extrabold text-center lg:text-left text-white dark:text-gray-300">
                                             Need Bike For Short Time?
                                         </h1>
-                                        <h2 className="lg:text-5xl text-3xl font-extrabold text-center lg:text-left text-white dark:text-gray-300">
+                                        <h2 
+                                            data-aos="fade-up"
+                                            data-aos-delay="200"
+                                            data-aos-duration="800"
+                                          
+                                        className="lg:text-5xl text-3xl font-extrabold text-center lg:text-left text-white dark:text-gray-300">
                                             Rent A Bike Now ! 
                                         </h2>
-                                        <p className="mt-4 text-lg text-center lg:text-left lg:w-[60%] text-white dark:text-gray-300">
+                                        <p 
+                                            data-aos="fade-up"
+                                            data-aos-delay="400"
+                                            data-aos-duration="800"
+                                          
+                                        className="mt-4 text-lg text-center lg:text-left lg:w-[60%] text-white dark:text-gray-300">
                                             Please call us for any kind of bike renting, we have 100+ bikes available for renting. Feel free to call us about any kind of information.
                                         </p>
 
                                         {/* Search Bar with Button */}
-                                        <SearchBar />
+                                        <SearchBar
+                                        data-aos="fade-up"
+                                        data-aos-delay="600"
+                                        />
 
-                                        <Button variant='outline' className="text-black dark:text-white hover:scale-90 w-fit smoothingAnimation mt-5 lg:ml-0 ml-[40%] border-black dark:border-white">
+                                        <Button
+                                            data-aos="fade-up"
+                                            data-aos-delay="800"
+                                            data-aos-duration="800"
+                                        variant='outline' className="text-black dark:text-white hover:scale-90 w-fit smoothingAnimation mt-5 lg:ml-0 ml-[40%] border-black dark:border-white">
                                             Book Now
                                         </Button>
                                     </div>

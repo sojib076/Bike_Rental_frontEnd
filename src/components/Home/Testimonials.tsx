@@ -32,7 +32,11 @@ const Testimonials = () => {
                  Testimonials
                 </h1>
 
-            <Carousel className="lg:w-full mx-auto" autoScrollInterval={1000}>
+            <Carousel 
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="800"
+            className="lg:w-full mx-auto" autoScrollInterval={1000}>
                 <CarouselContent className="-ml-1 lg:py-10">
                     {testimonyjson.map((test, index) => (
                         <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">

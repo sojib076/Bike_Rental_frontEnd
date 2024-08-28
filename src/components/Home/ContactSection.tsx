@@ -18,37 +18,37 @@ const ContactSection = () => {
     ];
     return (
 
-        <div  data-aos="fade-up" className="lg:mt-20 lg:px-20 my-10 px-5 font-serif">
+        <div  data-aos="fade-up" className="lg:mt-20 lg:px-20 my-10 px-5 font-serif  ">
             <div className="lg:mb-4">
                 <div className="lg:mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
 
-                    <h2 className=" lg:mb-4 font-bold  text-gray-900 text-3xl sm:text-5xl">
+                    <h2 className=" lg:mb-4 font-bold  text-gray-900 text-3xl sm:text-5xl dark:text-white ">
                         Get in Touch
                     </h2>
-                    <p className="mx-auto lg:mt-4 max-w-3xl text-xl text-gray-600 lg:block hidden">
+                    <p className="mx-auto lg:mt-4 max-w-3xl text-xl text-gray-600 lg:block hidden dark:text-white">
                        Best way to reach us is by email. We will get back to you as soon as possible.
                     </p>
                 </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
                 <div className="grid md:grid-cols-2 ">
                     <div className="h-full pr-6">
-                        <p className="lg:mt-3 lg:mb-12 my-4 text-lg text-gray-600">
+                        <p className="lg:mt-3 lg:mb-12 my-4 text-lg text-gray-600 dark:text-white ">
                         
                             We are here to help you with any questions you have. Just drop us a message and we will get back to you as soon as possible.
                         </p>
-                        <ul className="mb-6 md:mb-0">
+                        <ul className="mb-6 md:mb-0 dark:text-white">
                             {contactData.map((item, index) => (
                                 <li key={index} className="flex">
                                     <div className="flex h-10 w-10 items-center justify-center rounded bg-lime-200 text-gray-900">
                                         {item.icon}
                                     </div>
                                     <div className="ml-4 mb-4">
-                                        <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
+                                        <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
                                             {item.title}
                                         </h3>
                                         {item.details.map((detail, detailIndex) => (
-                                            <p key={detailIndex} className="text-gray-600">
+                                            <p key={detailIndex} className="text-gray-600 dark:text-white">
                                                 {detail}
                                             </p>
                                         ))}

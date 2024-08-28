@@ -16,7 +16,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-20">
+    <div className="container mx-auto px-4 py-8 mt-20 dark:bg-black dark:mt-16">
       {/* Mission Statement */}
       <section className="text-center mb-12" data-aos="fade-up">
         <h1 className="text-4xl font-bold mb-4">About Us</h1>
@@ -24,44 +24,44 @@ export default function AboutUs() {
           Our mission is to empower individuals and businesses with innovative technology solutions that drive growth and success in the digital age.
         </p>
       </section>
-      <div  data-aos="fade-up" className=" lg:p-20 mt-10 px-5">
-                <div className="flex flex-col-reverse lg:flex-row-reverse items-center">
-                    <div className="lg:w-[50%] text-left">
-                        <h1 className="text-xl md:text-4xl font-bold lg:mt-0 mt-10">
-                       <span className="text-green-500"> Okay Bikes </span> Best in the Business
-                        </h1>
-                        <p className="py-6">
-                            
-                            Okay Bikes is a leading motorcycle rental company in the world. We provide the best quality bikes for rent at affordable prices. We have a wide range of bikes to choose from. Our bikes are well maintained and serviced regularly. We have a team of experienced professionals who are dedicated to providing the best service to our customers. We are committed to providing the best quality bikes and excellent customer service. We have a large fleet of bikes to choose from, including sports bikes, cruisers, touring bikes, and more. We offer flexible rental options to suit your needs. Whether you need a bike for a day, a week, or a month, we have you covered. Renting a bike from Okay Bikes is easy and hassle-free. Just choose the bike you want, book it online, and pick it up from our location. We also offer delivery services to your location. Rent a bike from Okay Bikes and enjoy the freedom of the open road.
+      <div data-aos="fade-up" className=" lg:p-20 mt-10 px-5">
+        <div className="flex flex-col-reverse lg:flex-row-reverse items-center">
+          <div className="lg:w-[50%] text-left">
+            <h1 className="text-xl md:text-4xl font-bold lg:mt-0 mt-10">
+              <span className="text-green-500"> Okay Bikes </span> Best in the Business
+            </h1>
+            <p className="py-6">
 
-                        </p>
-                        <div className="flex justify-between text-center">
-                            <div>
-                                <div className="text-sm md:text-2xl font-bold">10 years</div>
-                                <div className="text-sm ">Experience</div>
-                            </div>
-                            <div>
-                                <div className="text-sm md:text-2xl font-bold">2k</div>
-                                <div className="text-sm">Happy Customers</div>
-                            </div>
-                            <div>
-                                <div className="text-sm md:text-2xl font-bold">100%</div>
-                                <div className=" text-sm">Client Satisfaction</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="lg:w-[50%] w-[90%] ">
-                        <img
-                            src='
+              Okay Bikes is a leading motorcycle rental company in the world. We provide the best quality bikes for rent at affordable prices. We have a wide range of bikes to choose from. Our bikes are well maintained and serviced regularly. We have a team of experienced professionals who are dedicated to providing the best service to our customers. We are committed to providing the best quality bikes and excellent customer service. We have a large fleet of bikes to choose from, including sports bikes, cruisers, touring bikes, and more. We offer flexible rental options to suit your needs. Whether you need a bike for a day, a week, or a month, we have you covered. Renting a bike from Okay Bikes is easy and hassle-free. Just choose the bike you want, book it online, and pick it up from our location. We also offer delivery services to your location. Rent a bike from Okay Bikes and enjoy the freedom of the open road.
+
+            </p>
+            <div className="flex justify-between text-center">
+              <div>
+                <div className="text-sm md:text-2xl font-bold">10 years</div>
+                <div className="text-sm ">Experience</div>
+              </div>
+              <div>
+                <div className="text-sm md:text-2xl font-bold">2k</div>
+                <div className="text-sm">Happy Customers</div>
+              </div>
+              <div>
+                <div className="text-sm md:text-2xl font-bold">100%</div>
+                <div className=" text-sm">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+          <div className="lg:w-[50%] w-[90%] ">
+            <img
+              src='
                             
                             https://media.istockphoto.com/id/1457093031/photo/motorcycle-parked-on-the-road.webp?s=1024x1024&w=is&k=20&c=LUscKlk2nmjANf9bLuFYXbCQM0leqgFQ3E9-dW-esiw=
-                            ' 
-                            alt="about"
-                            className="rounded-lg shadow-lg w-full max-w-md"
-                        />
-                    </div>
-                </div>
-            </div>
+                            '
+              alt="about"
+              className="rounded-lg shadow-lg w-full max-w-md"
+            />
+          </div>
+        </div>
+      </div>
 
 
       <Separator className="my-8" />
@@ -116,7 +116,7 @@ export default function AboutUs() {
 
       {/* Contact Information */}
       <section data-aos="fade-up" data-aos-delay="300">
-            <ContactSection />
+        <ContactSection />
 
       </section>
     </div>
