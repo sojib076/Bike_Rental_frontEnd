@@ -37,7 +37,10 @@ const Header = () => {
         <header className="fixed top-0 left-0 z-50 w-full bg-background dark:bg-gray-900 shadow-lg smoothingAnimation">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
                 <Link to={'/'} className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-foreground dark:text-white">Acme Inc</span>
+                    <span className="text-lg font-bold text-foreground dark:text-white"> 
+
+                        Okay Bikes
+                    </span>
                 </Link>
                 <nav className="hidden lg:flex items-center gap-4">
                     {links.map((link) => (

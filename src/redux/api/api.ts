@@ -67,6 +67,10 @@ export const baseApi = createApi({
       query: () => 'bikes',
       providesTags: ['Bikes'],
     }),
+
+
+    
+
     createBikes: builder.mutation({
       query: (body) => (
     

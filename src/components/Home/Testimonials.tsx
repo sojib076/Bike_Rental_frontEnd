@@ -27,11 +27,10 @@ const Testimonials = () => {
 
     return (
         <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black ">
-            <h1 className="lg:text-[40px] leading-[48px] font-semibold uppercase lg:mt-5 dark:mt-0 lg:mb-10 mb-5 text-black dark:text-gray-100 lg:text-center 
-            
-            ">
-                Testimonials
-            </h1>
+           <h1 className="lg:text-[40px] text-center text-2xl
+                 leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white">
+                 Testimonials
+                </h1>
 
             <Carousel className="lg:w-full mx-auto" autoScrollInterval={1000}>
                 <CarouselContent className="-ml-1 lg:py-10">

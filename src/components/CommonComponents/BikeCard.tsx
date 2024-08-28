@@ -13,7 +13,7 @@ interface BikeCardProps {
   year: number;
   maxSpeed: number;
   price: number;
-  refetch: () => void;
+  refetch ?: () => void;
 }
 
 const BikeCard: FC<BikeCardProps> = ({

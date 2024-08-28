@@ -7,9 +7,13 @@ import { FaSearch, FaMotorcycle } from "react-icons/fa";
 import { BsCheckCircle } from "react-icons/bs";
 import { useState } from "react";
 
+
 const BikeList = () => {
     const { data, isLoading, refetch } = useGetBikesQuery(undefined);
-    const bikes = data?.data;
+    const   bikes = data?.data;
+
+   
+
     const [filters, setFilters] = useState({
         brand: "",
         model: "",

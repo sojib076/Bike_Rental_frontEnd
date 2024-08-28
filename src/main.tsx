@@ -28,6 +28,7 @@ import AllUsers from "./Pages/Admin/Allusers.tsx";
 import AdminRoute from "./PrivateRoutes/AdminRoute.tsx";
 import UserRoute from "./PrivateRoutes/UserRoute.tsx";
 import UpdateBike from "./Pages/Admin/UpdateBike.tsx";
+import SearchResultsPage from "./components/Home/SearchResultsPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,24 @@ const router = createBrowserRouter([
             element:(<BikeDetails />)
             
         },
+        //
+        {
+          path: "/search",
+          loader: async ({ request }: any) => {
+            const url = new URL(request.url);
+            const searchTerm = url.searchParams.get('searchTerm');
+            
+            // Log the search term to verify it's being captured correctly
+            console.log('Search term:', searchTerm);
+        
+            const response = await fetch(`https://bike-rental-backend-delta.vercel.app/api/bikes?searchTerm=${searchTerm}`);
+            const data = await response.json();
+            
+            return data;  // Return the data to be used by the SearchResultsPage component
+          },
+          element: <SearchResultsPage />,
+        },
+        
 
       // auth routes
       {

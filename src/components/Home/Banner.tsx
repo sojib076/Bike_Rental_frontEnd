@@ -1,9 +1,13 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import { Button } from "../ui/button";
+import SearchBar from "./Seacrchform";
 
 const Banner = () => {
     return (
         <div className="w-full lg:h-screen mx-auto" id="top">
+            {/* Search Bar */}
+
+
             <Carousel>
                 <CarouselContent>
                     <CarouselItem>
@@ -24,6 +28,10 @@ const Banner = () => {
                                         <p className="mt-4 text-lg text-center lg:text-left lg:w-[60%] text-white dark:text-gray-300">
                                             Please call us for any kind of bike renting, we have 100+ bikes available for renting. Feel free to call us about any kind of information.
                                         </p>
+
+                                        {/* Search Bar with Button */}
+                                        <SearchBar />
+
                                         <Button variant='outline' className="text-black dark:text-white hover:scale-90 w-fit smoothingAnimation mt-5 lg:ml-0 ml-[40%] border-black dark:border-white">
                                             Book Now
                                         </Button>
@@ -31,12 +39,14 @@ const Banner = () => {
                                 </div>
                             </div>
                         </div>
+
                     </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious className="ml-[50px] text-white dark:text-gray-300" />
                 <CarouselNext className="mr-[50px] text-white dark:text-gray-300" />
             </Carousel>
         </div>
+
     );
 };
 
