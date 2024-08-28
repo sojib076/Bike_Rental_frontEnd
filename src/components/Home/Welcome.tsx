@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
     return (
-        <div className=" dark:bg-black dark:text-white text-black">
-            <div className="lg:px-20 p-5 font-[Oswald] mt-5 lg:mt-0">
+        <div className=" dark:bg-black dark:text-white text-black dark:py-10">
+            <div className="lg:px-20 p-5 font-[Oswald] mt-5 dark:mt-0 lg:mt-0">
                 <h1 className="bgRed 
                 lg:w-fit w-[50%] lg:mx-0 mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center
                  dark:text-white text-black">
