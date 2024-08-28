@@ -13,7 +13,7 @@ const SearchBar = () => {
     };
 
     return (
-        <div className="mt-6 flex justify-center lg:justify-start">
+        <div className="mt-6 flex justify-center lg:justify-start w-[90%] mx-auto lg:w-full">
             <input
                 type="text"
                 placeholder="Search for by Name"
@@ -22,7 +22,7 @@ const SearchBar = () => {
                 className="px-4 py-2 w-full lg:w-1/2 border border-gray-300 rounded-l-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 "
             />
             <button
-                className="px-4 py-2  dark:text-white font-semibold rounded-r-lg
+                className="px-4 py-2  dark:text-black font-semibold rounded-r-lg
                  bg-white  text-black
                 "
                 onClick={handleSearch}
