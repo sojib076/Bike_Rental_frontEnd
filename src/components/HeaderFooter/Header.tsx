@@ -37,10 +37,7 @@ const Header = () => {
         <header className="fixed top-0 left-0 z-50 w-full bg-background dark:bg-gray-900 shadow-lg smoothingAnimation">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
                 <Link to={'/'} className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-foreground dark:text-white"> 
-
-                        Okay Bikes
-                    </span>
+                    <span className="text-lg font-bold text-foreground dark:text-white">Acme Inc</span>
                 </Link>
                 <nav className="hidden lg:flex items-center gap-4">
                     {links.map((link) => (
@@ -50,7 +47,7 @@ const Header = () => {
                     ))}
                 </nav>
                 <div className="flex items-center gap-4 lg:mr-16">
-                    {auth ? (
+                    {auth && (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Avatar className="h-9 w-9">
@@ -68,14 +65,13 @@ const Header = () => {
                                 <DropdownMenuItem onClick={() => dispatch(logoutUser())} className="cursor-pointer dark:text-white">Logout</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-                    ) : (
-                        <Button variant="outline" size="icon" className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+                    ) }
+                    <Button variant="outline" size="icon" className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
                             <MenuIcon className="w-6 h-6" />
                             <span className="sr-only">Toggle navigation</span>
                         </Button>
-                    )}
 
-                    {/* toggleDarkMode */}
+                 
 
                     <Button  onClick={toggleDarkMode}>
                         <Moon className="w-6 h-6" />

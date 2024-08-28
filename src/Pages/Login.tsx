@@ -47,7 +47,7 @@ const Login = () => {
 
    
     return (
-       <div className='dark:bg-black bg-white' >
+       <div className='dark:bg-black bg-white h-[100vh]' >
  <div className="grid lg:grid-cols-1 lg:gap-20    ">
             <div className="font-[Oswald] flex items-center justify-center lg:mt-20 py-5 mt-16 ">
                 <Card>
