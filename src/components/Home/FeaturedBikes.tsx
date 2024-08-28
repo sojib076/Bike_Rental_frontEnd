@@ -25,10 +25,13 @@ const FeaturedBikes = () => {
     return (
         <div className="lg:p-20 dark:pt-10 p-2 font-[Oswald] overflow-hidden my-5 dark:my-0 bg-background dark:bg-dark-background">
             <div>
-                <h1 className="bg-red-500 lg:w-fit w-[50%] lg:mx-0 mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center text-white dark:text-gray-200">
+                <h1 className="bg-red-500
+                    
+                lg:w-fit w-[50%] lg:mx-0 mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center text-white dark:text-gray-200">
                     Featured Bikes
                 </h1>
                 <h1 className="lg:text-[40px] text-center text-2xl
+                lg:text-left
                  leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white">
                     Available Bikes
                 </h1>

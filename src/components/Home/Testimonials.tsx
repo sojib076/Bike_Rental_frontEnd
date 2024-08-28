@@ -26,9 +26,9 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black ">
-           <h1 className="lg:text-[40px] text-center text-2xl
-                 leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white">
+        <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black  ">
+           <h1 className="lg:text-[40px] text-center text-2xl lg:text-left
+                 leading-[48px] font-semibold uppercase lg:mt-5 dark:mt-0  text-primary dark:text-white ">
                  Testimonials
                 </h1>
 
