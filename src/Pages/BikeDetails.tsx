@@ -37,7 +37,7 @@ const BikeDetails = () => {
       });
 
       if (result.data) {
-        toast.success("Bike rented successfully");
+        toast.success("Go to the payment page to complete the rental process.");
         window.location.href = result.data.data.payment_url;
       } else if (result.error) {
         toast.error("Bike is already rented");

@@ -38,21 +38,21 @@ const Welcome = () => {
                     <div className="grid grid-cols-3 lg:gap-5 gap-4 mt-5">
                         <div 
                             data-aos="fade-up"
-                            data-aos-delay="200"
+                            data-aos-delay="100"
                             data-aos-duration="800"
                         className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
                             <p>Best Price</p>
                         </div>
                         <div 
                             data-aos="fade-up"
-                            data-aos-delay="400"
+                            data-aos-delay="200"
                             data-aos-duration="800"
                         className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
                             <p>100+ Bikes</p>
                         </div>
                         <div 
                             data-aos="fade-up"
-                            data-aos-delay="500"
+                            data-aos-delay="300"
                             data-aos-duration="800"
                         className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
                             <p>Best Quality</p>
