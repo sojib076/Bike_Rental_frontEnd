@@ -2,6 +2,7 @@ const Contactus = () => {
     return (
         <div>
             <div className="py-10 mx-auto p-8 
+            
             bg-white
             dark:bg-gray-800 
             
@@ -9,7 +10,7 @@ const Contactus = () => {
             text-black
             rounded-lg shadow-lg font-[Oswald]">
                 <h1 className="lg:text-[40px] text-xl text-center lg:leading-[48px] font-semibold uppercase 
-                lg:mt-5 dark:mt-0 lg:mb-10 mb-5 text-black dark:text-gray-100 lg:text-center
+                lg:mt-5 dark:mt-0 lg:mb-10 mb-5 dark:mb-0 text-black dark:text-gray-100 lg:text-center
                 ">
                     Contact Us
                 </h1>

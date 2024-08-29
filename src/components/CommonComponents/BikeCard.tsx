@@ -28,6 +28,13 @@ const BikeCard: FC<BikeCardProps> = ({
   maxSpeed,
   price,
 }) => {
+
+  // const [detailslogin, setDetailsLogin] = useState(false);
+
+
+
+
+
   return (
     <div className="relative w-full lg:h-[580px] bg-black cursor-pointer lg:p-5 px-3">
       <div className="grid grid-cols-1 items-center px-5 pt-1">
@@ -86,11 +93,14 @@ const BikeCard: FC<BikeCardProps> = ({
         </div>
         <Link
           to={`/bike/${id}`}
+       
           className="bg-green-600 hover:bg-green-700 text-center text-sm font-bold py-2 px-4 rounded-lg transition-colors duration-300"
         >
           View Details
         </Link>
       </div>
+
+      
     </div>
   );
 };

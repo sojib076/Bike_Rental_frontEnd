@@ -9,6 +9,7 @@ import Contactus from './Contactus';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
+import HelpSection from '@/components/Home/HelpSection';
 
 
 const Home = () => {
@@ -28,6 +29,14 @@ const Home = () => {
             <Testimonials/>
             <Welcome />
             <Contactus/>
+            <HelpSection
+            title="Get Discount"
+            description="Get discount on your By spaining the wheel , every time you spin the wheel you get a discount on your next ride"
+            buttonText="Spin the wheel
+            "
+            backgroundImage='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRufbmc6jOs9dDUUB4h40zC0GUezdVy3QwbZA&s'
+
+            />
         
         </div>
     );

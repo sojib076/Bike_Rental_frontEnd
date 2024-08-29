@@ -6,7 +6,7 @@ const Loading = () => {
         <div className="flex justify-center items-center h-screen">
             <FaMotorcycle
               size={100}
-                className=" text-blue-400 animate-sideToSide"
+                className=" text-green-600 animate-sideToSide"
             />
         </div>
     );

@@ -15,11 +15,14 @@ const Dashboard = () => {
         );
     }
 
-    
+
+    const admin = data.data.role === "admin";
 
     // Assuming `data` contains a `name` property for personalization
     return (
         <div className="flex flex-col items-center justify-center h-screen p-4">
+             
+
             <h1 className="text-3xl font-bold text-gray-800  dark:text-white  ">
                 Welcome back, {data.data.name}!
             </h1>
@@ -29,7 +32,16 @@ const Dashboard = () => {
           <Link to="/dashboard/profile">
                 <Button className="mt-4">Edit Profile</Button>
             </Link>
-            {/* Add more profile details or components as needed */}
+           
+            
+                         
+                            <div className="bg-red-300 text-black dark:text-gray-600 font-semibold font-serif  p-2 rounded-lg my-4">
+                              {
+                                admin ? "You are an admin" : "You are a user"
+                              }
+                            </div>
+                        
+                
         </div>
     );
 };
