@@ -10,8 +10,8 @@ import { useAllrentalbikeQuery, useReturnRentalMutation } from "@/redux/api/api"
 
 const ReturnBikes = () => {
   const { data, isLoading, refetch } = useAllrentalbikeQuery(undefined);
-console.log(data?.data);
 
+ 
   const [returnRental] = useReturnRentalMutation();
 
   const handleReturn = async (rentalId: string) => {
@@ -54,10 +54,11 @@ console.log(data?.data);
               <TableCell colSpan={4} className="text-center">No Rentals Found</TableCell>
             </TableRow>
           ) : (
+            //  console.log(data.data[0].userId.name);
             data.data.map((rental: any) => (
               <TableRow key={rental._id} className="">
-                <TableCell>{rental.bike?.name || "N/A"}</TableCell>
-                <TableCell>{rental.user?.name || "N/A"}</TableCell>
+                <TableCell>{rental.bikeId?.name || "N/A"}</TableCell>
+                <TableCell>{rental.userId?.name || "N/A"}</TableCell>
                 <TableCell>{rental.startTime ? new Date(rental.startTime).toLocaleString() : "N/A"}</TableCell>
                 <TableCell>
                   <Button

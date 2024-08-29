@@ -17,6 +17,8 @@ const AllBikes = () => {
         refetchOnMountOrArgChange: true,
     });
 
+   
+
     const [filters, setFilters] = useState({
         brand: "",
         model: "",
@@ -30,6 +32,8 @@ const AllBikes = () => {
     if (isLoading) {
         return <Loading />;
     }
+
+    
 
     const handleDeleteClick = (bike: any) => {
         setBikeToDelete(bike);
