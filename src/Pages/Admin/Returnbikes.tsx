@@ -33,6 +33,9 @@ const ReturnBikes = () => {
     return <Loading />;
   }
 
+  // only shows bikes that are not returned
+  const filteredData = data?.data.filter((rental: any) => !rental.isReturned);
+
   // Debugging: Log the data to check its structure
  
 
@@ -55,7 +58,7 @@ const ReturnBikes = () => {
             </TableRow>
           ) : (
             //  console.log(data.data[0].userId.name);
-            data.data.map((rental: any) => (
+            filteredData.map((rental: any) => (
               <TableRow key={rental._id} className="">
                 <TableCell>{rental.bikeId?.name || "N/A"}</TableCell>
                 <TableCell>{rental.userId?.name || "N/A"}</TableCell>

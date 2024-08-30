@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent } from "@/components/ui/card";
-import { useGetAllRentalsQuery, usePayRentalMutation } from "@/redux/api/api";
+import { useGetAllRentalsQuery } from "@/redux/api/api";
+import { Link } from "react-router-dom";
+
 
 type Rental = {
   userId: string
@@ -15,7 +17,7 @@ type Rental = {
   paymentId: string;
 };
 
-const RentalList = ({ rentals, showPayButton = false, handlePay }: { rentals: Rental[], showPayButton?: boolean, handlePay?: (paymentId: string, totalCost: number) => void }) => (
+const RentalList = ({ rentals, showPayButton = false }: { rentals: Rental[], showPayButton?: boolean, handlePay?: (paymentId: string, totalCost: number) => void }) => (
   <div className="space-y-4">
     {rentals?.map((rental) => (
       <Card key={rental.id}>
@@ -26,13 +28,14 @@ const RentalList = ({ rentals, showPayButton = false, handlePay }: { rentals: Re
             <p className="text-sm text-muted-foreground">Return: {rental.returnTime}</p>
             <p className="font-medium">Total: ${rental.totalCost}</p>
           </div>
-          {showPayButton && handlePay && (
-            <Button onClick={() => handlePay(rental.paymentId, rental.totalCost)}
-
-            disabled={rental.totalCost === 0}
-            
-            >Pay</Button>
-          )}
+          {showPayButton  &&
+          
+  
+          (
+           <Link to={`/checkout/${rental.paymentId}`} className="btn btn-primary">Pay</Link>
+          )
+          }
+                 
         </CardContent>
       </Card>
     ))}
@@ -42,24 +45,10 @@ const RentalList = ({ rentals, showPayButton = false, handlePay }: { rentals: Re
 export default function Component() {
   const [activeTab, setActiveTab] = useState("unpaid");
   const { data = [] } = useGetAllRentalsQuery(undefined);
-  const [payRental] = usePayRentalMutation();
+
 
   // Handle payment
-  const handlePay = async (paymentId: string, totalCost: number,) => {
-    try {
-      const body = {
-       
-        paymentId: paymentId,
-        totalCost: totalCost,
-      };
-     const result = await payRental(body);
-      if(result.data){
-        window.location.href=result?.data?.data?.payment_url;
-      }
-    } catch (error) {
-      console.error("Payment failed:", error);
-    }
-  };
+
 
   // Split rentals into paid and unpaid
   const paidRentals = data?.data?.filter((rental: Rental) => rental.totalPaid);
@@ -74,7 +63,7 @@ export default function Component() {
           <TabsTrigger value="paid">Paid</TabsTrigger>
         </TabsList>
         <TabsContent value="unpaid">
-          <RentalList rentals={unpaidRentals} showPayButton={true} handlePay={handlePay} />
+          <RentalList rentals={unpaidRentals} showPayButton={true}  />
         </TabsContent>
         <TabsContent value="paid">
           <RentalList rentals={paidRentals} />

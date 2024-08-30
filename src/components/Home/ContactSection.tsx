@@ -12,7 +12,7 @@ const ContactSection = () => {
         {
             icon: <Phone className="h-6 w-6" />,
             title: "Contact",
-            details: ["Mobile: +123456789", "Mail: dssports@gmail.com"]
+            details: ["Mobile: +123456789", "Mail: okaybike@gmail.com"]
         },
 
     ];

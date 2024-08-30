@@ -27,11 +27,11 @@ const FeaturedBikes = () => {
             <div>
                 <h1
                 data-aos="fade-up"
-                className="bg-red-500
+                className="bg-green-500
 
                 
                     
-                lg:w-fit w-[50%] lg:mx-0 mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center text-white dark:text-gray-200">
+                lg:w-fit w-[50%] lg:mx-0  mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center text-black dark:text-black">
                     Featured Bikes
                 </h1>
                 <h1 
@@ -40,7 +40,9 @@ const FeaturedBikes = () => {
                  data-aos-duration="800"
                 className="lg:text-[40px] text-center text-2xl
                 lg:text-left
-                 leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white">
+                 leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white
+                lg:mb-7
+                 ">
                     Available Bikes
                 </h1>
             </div>

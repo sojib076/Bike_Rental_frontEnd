@@ -33,13 +33,12 @@ const Login = () => {
 
         try {
             const  data = await login(formData).unwrap();
-         
             dispatch(loginSuccess(data,));
             navigate('/dashboard');
 
         } catch (err) {
             console.error("Login failed:", err);
-        toast.error('Please Try Again')
+        toast.error(err?.data?.message);
         }
     };
 

@@ -15,6 +15,21 @@ export default function AboutUs() {
     });
   }, []);
 
+  const aboutItems = [
+    {
+      title: "Vision",
+      content: "Our vision is to be the leading provider of home care services, recognized for our unwavering commitment to excellence.",
+    },
+    {
+      title: "Mission",
+      content: "Our mission at Pavilion Home Care LLC is to deliver compassionate, personalized home health care services that improve the quality of life for our clients.",
+    },
+    {
+      title: "Motto",
+      content: "Compassionate Care, Heartfelt Service.",
+    },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-8 mt-20 dark:bg-black dark:mt-16">
       {/* Mission Statement */}
@@ -23,6 +38,19 @@ export default function AboutUs() {
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           Our mission is to empower individuals and businesses with innovative technology solutions that drive growth and success in the digital age.
         </p>
+
+        <div className="w-full px-4 lg:px-0  py-10 lg:mb-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {aboutItems.map((item, index) => (
+            <div key={index} className="flex flex-col items-center shadow-2xl shadow-gray-400 p-4 rounded-md 
+            
+          hover:scale-125 
+            " data-aos="zoom-in"
+              data-aos-delay={`${150 * index}`}>
+              <h2 className="text-2xl font-semibold mb-2 text-green-600 dark:text-white">{item.title}</h2>
+              <p>{item.content}</p>
+            </div>
+          ))}
+        </div>
       </section>
       <div data-aos="fade-up" className=" lg:p-20 mt-10 px-5">
         <div className="flex flex-col-reverse lg:flex-row-reverse items-center">
@@ -92,25 +120,46 @@ export default function AboutUs() {
       <Separator className="my-8" />
 
       {/* History & Milestones */}
-      <section className="mb-12" data-aos="fade-up" data-aos-delay="200">
-        <h2 className="text-3xl font-semibold mb-6">Our Journey</h2>
-        <div className="space-y-8">
-          {milestones.map((milestone, index) => (
-            <div key={index} className="flex" data-aos="fade-right" data-aos-delay={`${200 * index}`}>
-              <div className="flex flex-col items-center mr-4">
-                <div className="w-4 h-4 bg-primary rounded-full" />
-                {index !== milestones.length - 1 && (
-                  <div className="w-0.5 h-full bg-muted-foreground" />
-                )}
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold">{milestone.year}</h3>
-                <p className="text-muted-foreground">{milestone.event}</p>
-              </div>
-            </div>
-          ))}
+      <section className="mb-16 relative bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-lg">
+  <h2 className="text-4xl font-extrabold mb-12 text-center text-green-500">Our Journey</h2>
+  
+  <div className="relative">
+    {milestones.map((milestone, index) => (
+      <div
+        key={index}
+        className={`relative flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''} mb-12`}
+        data-aos="fade-up"
+        data-aos-delay={`${200 * index}`}
+      >
+        <div className="lg:w-5/12 p-6 text-center lg:text-left bg-white dark:bg-gray-800 rounded-lg shadow-md relative z-10">
+          <h3 className="text-2xl font-bold text-green-500">{milestone.year}</h3>
+          <p className="mt-2 text-gray-700 dark:text-gray-300">{milestone.event}</p>
         </div>
-      </section>
+        <div className="lg:w-2/12 flex justify-center items-center relative z-20">
+          <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full shadow-lg">
+            <svg
+              className="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fillRule="evenodd" d="M12.293 9.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 12.586l3.293-3.293z" clipRule="evenodd" />
+            </svg>
+          </div>
+          {index !== milestones.length - 1 && (
+            <div className="absolute h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
+          )}
+        </div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-1/2 h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
+      </div>
+    ))}
+  </div>
+
+  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
+</section>
+
+
+
 
       <Separator className="my-8" />
 

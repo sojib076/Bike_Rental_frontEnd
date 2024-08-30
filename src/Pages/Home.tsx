@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import HelpSection from '@/components/Home/HelpSection';
 
 
+
 const Home = () => {
     useEffect(() => {
         AOS.init({
@@ -37,6 +38,7 @@ const Home = () => {
             backgroundImage='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRufbmc6jOs9dDUUB4h40zC0GUezdVy3QwbZA&s'
 
             />
+ 
         
         </div>
     );

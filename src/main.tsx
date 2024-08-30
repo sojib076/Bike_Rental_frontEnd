@@ -29,6 +29,7 @@ import AdminRoute from "./PrivateRoutes/AdminRoute.tsx";
 import UserRoute from "./PrivateRoutes/UserRoute.tsx";
 import UpdateBike from "./Pages/Admin/UpdateBike.tsx";
 import SearchResultsPage from "./components/Home/SearchResultsPage.tsx";
+import CheckoutPage from "./Pages/User/Checkout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
             const response = await fetch(`https://bike-rental-backend-delta.vercel.app/api/bikes?searchTerm=${searchTerm}`);
             const data = await response.json();
             
-            return data;  // Return the data to be used by the SearchResultsPage component
+            return data;  
           },
           element: <SearchResultsPage />,
         },
@@ -111,6 +112,7 @@ const router = createBrowserRouter([
         path: "rentals",
         element: <UserRoute><Rentals></Rentals> </UserRoute>
       },
+
 
       // Admin routes
 
@@ -151,7 +153,12 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound/>
 
-}
+},
+
+{
+  path: "checkout/:id",
+  element: <UserRoute><CheckoutPage/> </UserRoute>
+},
 ]);
   
 

@@ -115,6 +115,12 @@ export const baseApi = createApi({
       query: () => 'rentals',
 
     }),
+    getSingleRental: builder.query({
+      query: (id) => {
+        console.log('Fetching rental with id:', id);
+        return `rentals/trans/${id}`;
+      },
+    }),
 
     // '/:id/return'
 
@@ -150,6 +156,7 @@ export const baseApi = createApi({
 export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdateProfileMutation,useGetBikesQuery,useCreateRentalMutation ,useGetAllRentalsQuery,useCreateBikesMutation,useDeleteBikesMutation, usePayRentalMutation,
   useReturnRentalMutation,useUpdateUserRoleMutation ,
   useGetAllUsersQuery,useUpdateBikeMutation, useDeleteUsersMutation,useAllrentalbikeQuery,
+  useGetSingleRentalQuery
 
  } = baseApi;
 

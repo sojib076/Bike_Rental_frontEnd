@@ -36,12 +36,18 @@ const BikeCard: FC<BikeCardProps> = ({
 
 
   return (
-    <div className="relative w-full lg:h-[580px] bg-black cursor-pointer lg:p-5 px-3">
+    <div className="relative w-full lg:h-[550px] bg-black cursor-pointer lg:p-5 px-3 
+    border border-gray-800 dark:border-gray-700 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105
+    
+    ">
       <div className="grid grid-cols-1 items-center px-5 pt-1">
         <h1 className="text-white dark:text-gray-100 lg:text-xl text-sm font-extrabold">{bikeName}</h1>
       </div>
       <div className="relative my-2 overflow-hidden">
-        <img src={imgageurl} alt={bikeName} className="w-full" />
+        <img src={imgageurl} alt={bikeName} className=" 
+        w-full h-[200px] object-cover rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105
+        
+        " />
         <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${availability ? 'bg-green-600' : 'bg-red-600'}`}>
           {availability ? 'Available' : 'Not Available'}
         </div>
