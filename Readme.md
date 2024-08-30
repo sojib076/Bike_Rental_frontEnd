@@ -6,6 +6,14 @@ This is a full-stack bike rental website that allows users to rent bikes and man
 This website is focused on user experience and has a clean and modern design. It is built with React, Tailwind CSS, Node.js, and MongoDB. 
 
 
+### Demo
+User: user_1@gmail.com 
+Password: 123
+
+Admin:sojibdas123@gmail.com
+Password: 123
+
+
 ### Features
 
 - **User:**
