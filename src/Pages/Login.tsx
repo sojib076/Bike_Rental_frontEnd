@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -38,7 +39,8 @@ const Login = () => {
 
         } catch (err) {
             console.error("Login failed:", err);
-        toast.error(err?.data?.message);
+            const error = err;
+        toast.error((error as any)?.data?.message);
         }
     };
 

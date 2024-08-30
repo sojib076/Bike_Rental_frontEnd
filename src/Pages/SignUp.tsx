@@ -45,8 +45,9 @@ const Signup = () => {
             navigate('/login');
           
         } catch (error) {
-            toast.error('Signup Failed');
-          
+            toast.error('All fields are required');
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+           
         }
     };
 

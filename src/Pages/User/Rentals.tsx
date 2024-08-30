@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { useGetAllRentalsQuery } from "@/redux/api/api";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import Loading from "@/components/CommonComponents/Loading";
 
 
 type Rental = {
@@ -17,10 +19,10 @@ type Rental = {
   paymentId: string;
 };
 
-const RentalList = ({ rentals, showPayButton = false }: { rentals: Rental[], showPayButton?: boolean, handlePay?: (paymentId: string, totalCost: number) => void }) => (
+const RentalList = ({ rentals, showPayButton = false  }: { rentals: Rental[], showPayButton?: boolean, handlePay?: (paymentId: string, totalCost: number) => void }) => (
   <div className="space-y-4">
     {rentals?.map((rental) => (
-      <Card key={rental.id}>
+      <Card key={rental.userId}>
         <CardContent className="flex items-center justify-between p-4">
           <div>
             <h3 className="font-semibold">{rental.bikeName}</h3>
@@ -32,7 +34,19 @@ const RentalList = ({ rentals, showPayButton = false }: { rentals: Rental[], sho
           
   
           (
-           <Link to={`/checkout/${rental.paymentId}`} className="btn btn-primary">Pay</Link>
+           <Link to={`/checkout/${rental.paymentId}`} className="btn btn-primary
+      
+           
+            "
+            
+           >
+              <Button
+                disabled={
+                  rental.totalCost === 0
+                }
+              >Pay Now</ Button>
+
+           </Link>
           )
           }
                  
@@ -44,15 +58,19 @@ const RentalList = ({ rentals, showPayButton = false }: { rentals: Rental[], sho
 
 export default function Component() {
   const [activeTab, setActiveTab] = useState("unpaid");
-  const { data = [] } = useGetAllRentalsQuery(undefined);
+  const { data = [] ,isLoading} = useGetAllRentalsQuery(undefined,
+    { refetchOnMountOrArgChange: true }
+
+  );
 
 
-  // Handle payment
-
-
-  // Split rentals into paid and unpaid
   const paidRentals = data?.data?.filter((rental: Rental) => rental.totalPaid);
   const unpaidRentals = data?.data?.filter((rental: Rental) => !rental.totalPaid);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
 
   return (
     <div className="container mx-auto p-4">
@@ -63,7 +81,7 @@ export default function Component() {
           <TabsTrigger value="paid">Paid</TabsTrigger>
         </TabsList>
         <TabsContent value="unpaid">
-          <RentalList rentals={unpaidRentals} showPayButton={true}  />
+          <RentalList rentals={unpaidRentals} showPayButton={true}   />
         </TabsContent>
         <TabsContent value="paid">
           <RentalList rentals={paidRentals} />

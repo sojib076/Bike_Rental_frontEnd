@@ -113,11 +113,17 @@ export const baseApi = createApi({
     }),
     getAllRentals: builder.query({
       query: () => 'rentals',
+      providesTags: ['User'],
 
-    }),
+    },
+    
+  
+    
+  
+  ),
     getSingleRental: builder.query({
       query: (id) => {
-        console.log('Fetching rental with id:', id);
+       
         return `rentals/trans/${id}`;
       },
     }),
@@ -129,7 +135,7 @@ export const baseApi = createApi({
         url: `rentals/${id}/return`,
         method: 'PUt',
       }),
-      invalidatesTags: ['User'],
+      invalidatesTags: ['User','Bikes'],
     }),
 
     allrentalbike: builder.query({
