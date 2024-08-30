@@ -89,11 +89,16 @@ const handlePay = async (paymentId: string, totalCost: number,) => {
       
         </CardContent>
         <CardFooter>
-          <Button className="w-full" size="lg"           onClick={() => handlePay(transid, total)}>
+          <Button className="w-full" size="lg" 
+          
+            disabled={isLoading}
+          onClick={() => handlePay(transid, total)}>
             <CreditCard className="w-4 h-4 mr-2" 
       
             />
-            Pay Now $
+        {
+          isLoading ? 'Processing...' : 'Pay Now'
+        }
           </Button>
         </CardFooter>
       </Card>

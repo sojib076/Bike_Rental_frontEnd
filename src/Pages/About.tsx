@@ -120,8 +120,8 @@ export default function AboutUs() {
       <Separator className="my-8" />
 
       {/* History & Milestones */}
-      <section className="mb-16 relative bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-lg">
-  <h2 className="text-4xl font-extrabold mb-12 text-center text-green-500">Our Journey</h2>
+      <section className="mb-16  bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-lg relative">
+  <h2 className="text-4xl font-extrabold mb-12 text-center text-green-500 z-20">Our Journey</h2>
   
   <div className="relative">
     {milestones.map((milestone, index) => (
@@ -136,26 +136,19 @@ export default function AboutUs() {
           <p className="mt-2 text-gray-700 dark:text-gray-300">{milestone.event}</p>
         </div>
         <div className="lg:w-2/12 flex justify-center items-center relative z-20">
-          <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full shadow-lg">
-            <svg
-              className="w-6 h-6 text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fillRule="evenodd" d="M12.293 9.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 12.586l3.293-3.293z" clipRule="evenodd" />
-            </svg>
-          </div>
-          {index !== milestones.length - 1 && (
-            <div className="absolute h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
-          )}
+         
+  
         </div>
-        <div className="absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-1/2 h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
+   
       </div>
     ))}
   </div>
 
-  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-600 z-0"></div>
+  <div className="absolute top-20 left-1/2 transform 
+  lg:block hidden
+   -translate-x-1/2 h-[90%] w-1 bg-gray-300 dark:bg-gray-600 z-10
+    
+   "></div>
 </section>
 
 

@@ -26,8 +26,7 @@ const BikeDetails = () => {
   const loaderData = useLoaderData() as any;
   const bike = loaderData.data as BikeDetailsType;
   const { auth } = useAppSelector((state) => state.userAuth);
-
-  const [createRental] = useCreateRentalMutation();
+  const [createRental,{isLoading}] = useCreateRentalMutation();
 
   const handleRentNow = async (startTime: string) => {
     try {
@@ -101,7 +100,9 @@ const BikeDetails = () => {
             <div className="flex gap-4">
               {bike.isAvailable && auth ?(
     
-                  <Button size="lg" onClick={() => setIsModalOpen(true)}>
+                  <Button size="lg" onClick={() => setIsModalOpen(true)} 
+                  disabled={isLoading}
+                  >
                     Rent Now
                   </Button>
     
@@ -133,6 +134,7 @@ const BikeDetails = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleRentNow}
+        isLoading={isLoading}
       />
     </div>
   );

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 type CustomModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: (startTime: string) => void;
+  isLoading: boolean;
 };
 
 const CustomModal: React.FC<CustomModalProps> = ({
   isOpen,
   onClose,
   onConfirm,
+  isLoading,
 }) => {
   const [startTime, setStartTime] = useState("");
 
@@ -19,7 +22,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
     if (startTime) {
       onConfirm(startTime);
     } else {
-      alert("Please select a start time.");
+      toast.error("Please select a start time");
     }
   };
 
@@ -56,7 +59,9 @@ const CustomModal: React.FC<CustomModalProps> = ({
             onClick={handleConfirm}
             className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
           >
-            Pay Tk 100 to Book
+            {
+              isLoading ? 'Processing...' : 'Pay Tk 100 to Book'
+            }
           </button>
         </div>
       </div>
