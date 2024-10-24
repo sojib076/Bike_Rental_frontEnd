@@ -3,10 +3,11 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import Loading from "@/components/CommonComponents/Loading";
+
 import { toast } from "sonner";
 
 import { useAllrentalbikeQuery, useReturnRentalMutation } from "@/redux/api/api";
+import SkeletonTable from "@/components/CommonComponents/skeletonTable";
 
 const ReturnBikes = () => {
   const { data, isLoading, refetch } = useAllrentalbikeQuery(undefined);
@@ -30,7 +31,7 @@ const ReturnBikes = () => {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return <SkeletonTable />;
   }
 
   // only shows bikes that are not returned

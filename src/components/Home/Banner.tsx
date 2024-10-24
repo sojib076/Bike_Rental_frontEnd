@@ -15,18 +15,18 @@ const Banner = () => {
       }, []);
     
     return (
-        <div className="w-full lg:h-screen mx-auto" id="top">
+        <div className="w-full lg:h-screen  mx-auto py-8" id="top">
            
             <Carousel>
                 <CarouselContent>
                     <CarouselItem>
                         <div
-                            className="relative w-full h-screen bg-cover bg-center bg-no-repeat lg:mt-5"
+                            className="relative w-full lg:h-screen h-[70vh]   bg-cover bg-center bg-no-repeat lg:mt-5"
                             style={{ backgroundImage: "url('https://autobike.templaza.net/wp-content/uploads/2023/05/paul-kansonkho-1920.jpg')" }}
                         >
                             <div className="absolute inset-0 bg-black opacity-40 dark:bg-black dark:opacity-70"></div>
                             <div className="relative lg:container mx-auto h-full flex items-center">
-                                <div className="lg:max-w-[90%] lg:p-6">
+                                <div className="lg:max-w-[90%] lg:p-6 p-5">
                                     <div className="lg:w-[70%]">
                                         <h1 
                                             data-aos="fade-up"

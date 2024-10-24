@@ -26,7 +26,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black  ">
+        <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black py-20  ">
            <h1 className="lg:text-[40px] text-center text-2xl lg:text-left
                  leading-[48px] font-semibold uppercase lg:mt-5 dark:mt-0  text-primary dark:text-white ">
                  Testimonials
@@ -40,12 +40,12 @@ const Testimonials = () => {
                 <CarouselContent className="-ml-1 lg:py-10">
                     {testimonyjson.map((test, index) => (
                         <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                            <div className="p-6 bg-gray-800 dark:bg-gray-700
+                            <div className="p-6 bg-gray-800 h-60 py-10 dark:bg-gray-700
                             
                             rounded-lg shadow-lg relative hover:shadow-xl transition-shadow duration-300">
                                 <div className="text-center">
                                     <img
-                                        src="https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg"
+                                        src="https://i.ibb.co.com/616X09w/sojibdas-website-desinger.png"
                                         className="w-10 h-10 object-cover rounded-full mx-auto mb-4 border-2 border-blue-500"
                                         alt="Testimonial Avatar"
                                     />

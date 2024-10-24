@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import Loading from "@/components/CommonComponents/Loading";
 
 
-type Rental = {
+export type Rental = {
   userId: string
   id: number;
   bikeName: string;

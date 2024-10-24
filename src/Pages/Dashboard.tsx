@@ -3,6 +3,7 @@ import Loading from "@/components/CommonComponents/Loading";
 import { Button } from "@/components/ui/button";
 import { useGetProfileQuery } from "@/redux/api/api";
 import { Link } from "react-router-dom";
+import AdminUsersChart from "./Admin/AdminUsersChart";
 
 const Dashboard = () => {
     const { data, isLoading } = useGetProfileQuery(undefined);
@@ -39,7 +40,18 @@ const Dashboard = () => {
                               {
                                 admin ? "You are an admin" : "You are a user"
                               }
+
+
+
+
                             </div>
+
+                            
+                            {
+                                admin && (
+                                   <AdminUsersChart />
+                                )
+                            }
                         
                 
         </div>

@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 
 import { toast } from "sonner";
 import { useState } from "react";
-import Loading from "@/components/CommonComponents/Loading";
+
 import { useDeleteUsersMutation, useGetAllUsersQuery, useUpdateUserRoleMutation } from "@/redux/api/api";
+import SkeletonTable from "@/components/CommonComponents/skeletonTable";
 
 const AllUsers = () => {
     const { data, isLoading,refetch } = useGetAllUsersQuery(undefined,{
@@ -20,7 +21,7 @@ const AllUsers = () => {
 
 
     if (isLoading) {
-        return <Loading />;
+        return <SkeletonTable />;
     }
     const handleDelete = async (userId: string) => {
         setDeletingUserId(userId);

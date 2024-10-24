@@ -18,7 +18,7 @@ const ContactSection = () => {
     ];
     return (
 
-        <div  data-aos="fade-up" className="lg:mt-20 lg:px-20 my-10 px-5 font-serif  ">
+        <div  data-aos="fade-up" className="lg:mt-20 lg:px-20 py-20 px-5 font-serif  ">
             <div className="lg:mb-4">
                 <div className="lg:mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
 

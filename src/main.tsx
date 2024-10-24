@@ -30,6 +30,7 @@ import UserRoute from "./PrivateRoutes/UserRoute.tsx";
 import UpdateBike from "./Pages/Admin/UpdateBike.tsx";
 import SearchResultsPage from "./components/Home/SearchResultsPage.tsx";
 import CheckoutPage from "./Pages/User/Checkout.tsx";
+import MyRentendBike from "./Pages/User/MyRentendBike.tsx";
 
 const router = createBrowserRouter([
   {
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
       {
         path: "rentals",
         element: <UserRoute><Rentals></Rentals> </UserRoute>
+      },
+      {
+        path: "myrentals",
+        element: <UserRoute><MyRentendBike></MyRentendBike> </UserRoute>
       },
 
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
     return (
-        <div className=" dark:bg-black dark:text-white text-black dark:py-10">
+        <div className=" dark:bg-black dark:text-white text-black dark:py-10 pb-20">
             <div className="lg:px-20 p-5 font-[Oswald] mt-5 dark:mt-0 lg:mt-0">
                 <h1 
                   data-aos="fade-up"

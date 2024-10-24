@@ -18,15 +18,15 @@ export default function AboutUs() {
   const aboutItems = [
     {
       title: "Vision",
-      content: "Our vision is to be the leading provider of home care services, recognized for our unwavering commitment to excellence.",
+      content: "To be the leading provider of innovative technology solutions that drive growth and success in the digital age.",
     },
     {
       title: "Mission",
-      content: "Our mission at Pavilion Home Care LLC is to deliver compassionate, personalized home health care services that improve the quality of life for our clients.",
+      content: " Empower individuals and businesses with innovative technology solutions that drive growth and success in the digital age.",
     },
     {
       title: "Motto",
-      content: "Compassionate Care, Heartfelt Service.",
+      content: "Innovate, Empower, Succeed.",
     },
   ];
 

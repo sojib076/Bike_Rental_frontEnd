@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDeleteBikesMutation, useGetBikesQuery } from "@/redux/api/api";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import Loading from "@/components/CommonComponents/Loading";
+
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -9,6 +9,7 @@ import ButtonLoadin from "@/components/CommonComponents/ButtonLoadin";
 import { Link } from "react-router-dom";
 import { FaMotorcycle, FaSearch } from "react-icons/fa";
 import { BsCheckCircle } from "react-icons/bs";
+import SkeletonTable from "@/components/CommonComponents/skeletonTable";
 
 const AllBikes = () => {
     const { data, isLoading, refetch } = useGetBikesQuery(undefined, {
@@ -30,7 +31,7 @@ const AllBikes = () => {
     const [deletebike, { isError }] = useDeleteBikesMutation();
 
     if (isLoading) {
-        return <Loading />;
+        return <SkeletonTable />;
     }
 
     

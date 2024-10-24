@@ -43,6 +43,12 @@ const Sidenavbar = () => {
       userOnly: true,
     },
     {
+      title: "My Rentals",
+      to: "/dashboard/myrentals",
+      icon: Monitor,
+      variant: "default"
+    },
+    {
       title: "Add Bike",
       to: "/dashboard/addbike",
       icon: PlusCircle,
