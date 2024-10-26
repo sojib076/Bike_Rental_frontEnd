@@ -15,13 +15,13 @@ const Banner = () => {
       }, []);
     
     return (
-        <div className="w-full lg:h-screen  mx-auto py-8" id="top">
+        <div className=" " id="top">
            
             <Carousel>
                 <CarouselContent>
                     <CarouselItem>
                         <div
-                            className="relative w-full lg:h-screen h-[70vh]   bg-cover bg-center bg-no-repeat lg:mt-5"
+                            className="relative w-full lg:h-[70vh] h-[80vh]   bg-cover bg-center bg-no-repeat lg:mt-5"
                             style={{ backgroundImage: "url('https://autobike.templaza.net/wp-content/uploads/2023/05/paul-kansonkho-1920.jpg')" }}
                         >
                             <div className="absolute inset-0 bg-black opacity-40 dark:bg-black dark:opacity-70"></div>
@@ -51,7 +51,7 @@ const Banner = () => {
                                             Please call us for any kind of bike renting, we have 100+ bikes available for renting. Feel free to call us about any kind of information.
                                         </p>
 
-                                        {/* Search Bar with Button */}
+                                      
                                         <SearchBar
                                         data-aos="fade-up"
                                         data-aos-delay="600"

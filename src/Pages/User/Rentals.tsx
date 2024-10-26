@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -17,6 +18,9 @@ export type Rental = {
   totalCost: number;
   totalPaid: boolean;
   paymentId: string;
+  bikeId: any;
+  reviewAdded: boolean;
+  quantity: number;
 };
 
 const RentalList = ({ rentals, showPayButton = false  }: { rentals: Rental[], showPayButton?: boolean, handlePay?: (paymentId: string, totalCost: number) => void }) => (
@@ -25,9 +29,10 @@ const RentalList = ({ rentals, showPayButton = false  }: { rentals: Rental[], sh
       <Card key={rental.userId}>
         <CardContent className="flex items-center justify-between p-4">
           <div>
-            <h3 className="font-semibold">{rental.bikeName}</h3>
+            <h3 className="font-semibold">{rental.bikeId.name}</h3>
             <p className="text-sm text-muted-foreground">Start: {rental.startTime}</p>
             <p className="text-sm text-muted-foreground">Return: {rental.returnTime}</p>
+            <p className="text-sm font-bold ">Total: {rental.quantity}</p>
             <p className="font-medium">Total: ${rental.totalCost}</p>
           </div>
           {showPayButton  &&

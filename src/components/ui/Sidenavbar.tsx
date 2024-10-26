@@ -36,6 +36,12 @@ const Sidenavbar = () => {
       variant: "default",
     },
     {
+      title: "Update Profile",
+      to: "/dashboard/updateprofile",
+      icon: User,
+      variant: "default",
+    },
+    {
       title: "Rentals",
       to: "/dashboard/rentals",
       icon: DollarSign,
@@ -43,10 +49,11 @@ const Sidenavbar = () => {
       userOnly: true,
     },
     {
-      title: "My Rentals",
+      title: "Add Review",
       to: "/dashboard/myrentals",
       icon: Monitor,
-      variant: "default"
+      variant: "default",
+      userOnly: true,
     },
     {
       title: "Add Bike",
@@ -86,7 +93,7 @@ const Sidenavbar = () => {
   });
 
   return (
-    <div className="relative min-w-[80px] lg:min-h-[100vh] border-r px-3 lg:pt-10 text-black">
+    <div className="  relative min-w-[80px] lg:min-h-[100vh] border-r px-3 lg:pt-10 text-black">
       <div className="my-10">
         <Button
           variant="secondary"

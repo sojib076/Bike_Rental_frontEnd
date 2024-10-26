@@ -19,6 +19,7 @@ import { toast } from 'sonner';
 const Profile = () => {
     const dispatch = useAppDispatch();
     const { data, isLoading ,refetch ,error} = useGetProfileQuery(undefined);
+    
     const [update,  { isLoading: updateloading }] = useUpdateProfileMutation()
     const [isEditing, setIsEditing] = useState(true);
     const [formData, setFormData] = useState({

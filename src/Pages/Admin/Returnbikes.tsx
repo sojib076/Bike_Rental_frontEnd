@@ -1,23 +1,42 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-
+import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-
 import { toast } from "sonner";
-
 import { useAllrentalbikeQuery, useReturnRentalMutation } from "@/redux/api/api";
 import SkeletonTable from "@/components/CommonComponents/skeletonTable";
+import Modal from "./Timemodal";
+
 
 const ReturnBikes = () => {
   const { data, isLoading, refetch } = useAllrentalbikeQuery(undefined);
-
- 
   const [returnRental] = useReturnRentalMutation();
+  const [selectedRental, setSelectedRental] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleReturn = async (rentalId: string) => {
+  const handleReturnClick = (rental: any) => {
+
+    const startTime = new Date(rental.startTime);
+    if ( startTime) {
+      setSelectedRental(rental);
+      setIsModalOpen(true);
+    } else {
+      toast.error("Return time must be after the start time");
+    }
+  };
+
+  const handleReturn = async (returnTime: string) => {
+    if (!selectedRental) return;
+
+    if (!returnTime || new Date(returnTime) <= new Date(selectedRental.startTime)) {
+      toast.error("Return time must be after the start time");
+      return;
+      
+    }
+
     try {
-      const result = await returnRental(rentalId);
+       
+      const result = await returnRental({ id: selectedRental._id, returnTime });
       if (result.data) {
         toast.success("Bike returned successfully");
         refetch();
@@ -27,6 +46,9 @@ const ReturnBikes = () => {
     } catch (error) {
       console.log(error);
       toast.error("An unexpected error occurred");
+    } finally {
+      setIsModalOpen(false);
+      setSelectedRental(null);
     }
   };
 
@@ -34,11 +56,7 @@ const ReturnBikes = () => {
     return <SkeletonTable />;
   }
 
-  // only shows bikes that are not returned
   const filteredData = data?.data.filter((rental: any) => !rental.isReturned);
-
-  // Debugging: Log the data to check its structure
- 
 
   return (
     <div className="p-6">
@@ -58,20 +76,19 @@ const ReturnBikes = () => {
               <TableCell colSpan={4} className="text-center">No Rentals Found</TableCell>
             </TableRow>
           ) : (
-            //  console.log(data.data[0].userId.name);
             filteredData.map((rental: any) => (
-              <TableRow key={rental._id} className="">
+              <TableRow key={rental._id}>
                 <TableCell>{rental.bikeId?.name || "N/A"}</TableCell>
                 <TableCell>{rental.userId?.name || "N/A"}</TableCell>
                 <TableCell>{rental.startTime ? new Date(rental.startTime).toLocaleString() : "N/A"}</TableCell>
                 <TableCell>
                   <Button
-                    onClick={() => handleReturn(rental._id)}
+                    onClick={() => handleReturnClick(rental)}
                     variant="outline"
                     className="mr-2 hover:scale-90 smoothAnimation"
                     disabled={rental.isReturned}
                   >
-                   Calculate & Return
+                    Calculate & Return
                   </Button>
                 </TableCell>
               </TableRow>
@@ -79,6 +96,14 @@ const ReturnBikes = () => {
           )}
         </TableBody>
       </Table>
+
+      
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        onConfirm={handleReturn} 
+        bikeName={selectedRental?.bikeId?.name} // Pass the bike name to the modal
+      />
     </div>
   );
 };

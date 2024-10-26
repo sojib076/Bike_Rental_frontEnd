@@ -1,13 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-'use client'
 
-import { useState, useMemo } from 'react'
+
+import { useState, useMemo, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { useGetAllUsersQuery } from '@/redux/api/api'
-
 
 export default function AdminUsersChart() {
   const { data } = useGetAllUsersQuery(undefined, {
@@ -16,85 +16,69 @@ export default function AdminUsersChart() {
     refetchOnReconnect: true,
   })
 
-
-
   const AllUsers = data?.data || []
-
   const [showWeekly, setShowWeekly] = useState(false)
-
 
   const allTimeData = useMemo(() => {
     if (!AllUsers.length) return []
-
     const monthCounts: { [key: string]: number } = {}
-
     AllUsers.forEach((user: { createdAt: string | number | Date }) => {
       const createdAt = new Date(user.createdAt)
-      const month = createdAt.getMonth() + 1 // months are zero-indexed
+      const month = createdAt.getMonth() + 1 
       const year = createdAt.getFullYear()
       const monthKey = `${year}-${String(month).padStart(2, '0')}`
-
-      if (!monthCounts[monthKey]) {
-        monthCounts[monthKey] = 0
-      }
-      monthCounts[monthKey]++
+      monthCounts[monthKey] = (monthCounts[monthKey] || 0) + 1
     })
-
-
     const result = Object.keys(monthCounts).map(monthKey => ({
       date: monthKey,
       users: monthCounts[monthKey],
     }))
     result.sort((a, b) => a.date.localeCompare(b.date))
-
     return result
   }, [AllUsers])
 
-
   const weeklyData = useMemo(() => {
     if (!AllUsers.length) return []
-
     const dayCounts: { [key: string]: number } = {}
     const dateLabels: string[] = []
     const dateMap: { [key: string]: string } = {}
-
     const today = new Date()
-    today.setHours(0, 0, 0, 0) 
-
-    // Initialize past 7 days
+    today.setHours(0, 0, 0, 0)
     for (let i = 6; i >= 0; i--) {
       const date = new Date(today)
       date.setDate(today.getDate() - i)
       const dateString = date.toISOString().slice(0, 10)
       const dayName = date.toLocaleDateString('en-US', { weekday: 'short' })
-
       dateLabels.push(dayName)
       dateMap[dateString] = dayName
       dayCounts[dayName] = 0
     }
-
-    // Count users per day
     AllUsers.forEach((user: { createdAt: string | number | Date }) => {
       const createdAt = new Date(user.createdAt)
-      createdAt.setHours(0, 0, 0, 0) // reset time to midnight
+      createdAt.setHours(0, 0, 0, 0)
       const dateString = createdAt.toISOString().slice(0, 10)
-
       if (dateMap[dateString]) {
         const dayName = dateMap[dateString]
         dayCounts[dayName]++
       }
     })
-
-    // Build result array
     const result = dateLabels.map(dayName => ({
       date: dayName,
       users: dayCounts[dayName] || 0,
     }))
-
     return result
   }, [AllUsers])
 
   const chartData = showWeekly ? weeklyData : allTimeData
+
+  // Extract relevant user data for the table
+  const tableData = useMemo(() => {
+    return AllUsers.map((user: { name: any; email: any; createdAt: string | number | Date }) => ({
+      name: user.name || 'N/A', 
+      email: user.email || 'N/A',
+      createdAt: new Date(user.createdAt).toLocaleDateString(), 
+    }))
+  }, [AllUsers])
 
   return (
     <Card className="w-full mx-auto">
@@ -116,7 +100,7 @@ export default function AdminUsersChart() {
               color: "hsl(var(--chart-1))",
             },
           }}
-          className="h-[400px]"
+          className="h-[300px]"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -149,6 +133,29 @@ export default function AdminUsersChart() {
             </BarChart>
           </ResponsiveContainer>
         </ChartContainer>
+
+        {/* Table to display new users */}
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold">New Users List</h3>
+          <table className="min-w-full border-collapse border border-gray-200">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2">Name</th>
+                <th className="border border-gray-300 px-4 py-2">Email</th>
+                <th className="border border-gray-300 px-4 py-2">Joined On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableData.map((user: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; email: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; createdAt: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined }, index: Key | null | undefined) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 px-4 py-2">{user.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">{user.email}</td>
+                  <td className="border border-gray-300 px-4 py-2">{user.createdAt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </CardContent>
     </Card>
   )

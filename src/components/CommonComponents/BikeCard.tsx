@@ -6,7 +6,7 @@ interface BikeCardProps {
   id: string;
   bikeName: string;
   imgageurl: string;
-  availability: boolean;
+  quantity: number;
   description: string;
   brand: string;
   model: string;
@@ -20,7 +20,7 @@ const BikeCard: FC<BikeCardProps> = ({
   id,
   bikeName,
   imgageurl,
-  availability,
+  quantity,
   description,
   brand,
   model,
@@ -48,8 +48,8 @@ const BikeCard: FC<BikeCardProps> = ({
         w-full h-[200px] object-cover rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105
         
         " />
-        <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${availability ? 'bg-green-600' : 'bg-red-600'}`}>
-          {availability ? 'Available' : 'Not Available'}
+        <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${quantity>0 ? 'bg-green-600' : 'bg-red-600'}`}>
+          {quantity> 1 ? 'Available' : 'Not Available'}
         </div>
       </div>
       <p className="text-white dark:text-gray-300 lg:hidden">

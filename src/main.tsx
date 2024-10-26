@@ -31,6 +31,7 @@ import UpdateBike from "./Pages/Admin/UpdateBike.tsx";
 import SearchResultsPage from "./components/Home/SearchResultsPage.tsx";
 import CheckoutPage from "./Pages/User/Checkout.tsx";
 import MyRentendBike from "./Pages/User/MyRentendBike.tsx";
+import MyProfile from "./Pages/User/MyProfile.tsx";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
             const url = new URL(request.url);
             const searchTerm = url.searchParams.get('searchTerm');
             
-            // Log the search term to verify it's being captured correctly
+          
             console.log('Search term:', searchTerm);
         
             const response = await fetch(`https://bike-rental-backend-delta.vercel.app/api/bikes?searchTerm=${searchTerm}`);
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       },
       {
         path :"profile",
+        element:<MyProfile/>
+      },
+      {
+        path :"updateprofile",
         element:<Profile/>
       },
 

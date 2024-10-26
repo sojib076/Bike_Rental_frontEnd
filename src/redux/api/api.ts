@@ -62,14 +62,17 @@ export const baseApi = createApi({
 
 
 
-    // bikes api endpoint
-    getBikes: builder.query({
-      query: () => 'bikes',
-      providesTags: ['Bikes'],
+  
+
+ getBikes: builder.query({
+    query: ({ page = 1, limit = 10, brand = "", model = "" }) => (
+      {
+        url: 'bikes',
+        params: { page, limit, brand, model },
     }),
+    providesTags: ['Bikes'],
+}),
 
-
-    
 
     createBikes: builder.mutation({
       query: (body) => (
@@ -128,18 +131,23 @@ export const baseApi = createApi({
       },
     }),
 
-    // '/:id/return'
+
 
     returnRental: builder.mutation({
-      query: (id) => ({
-        url: `rentals/${id}/return`,
-        method: 'PUt',
+      query: ({ id, returnTime }) => ({
+        url: `rentals/${id}/return?returntime=${returnTime}`,
+        method: 'PUT',
       }),
-      invalidatesTags: ['User','Bikes'],
+      invalidatesTags: ['User', 'Bikes'],
     }),
 
     allrentalbike: builder.query({
       query: () => 'rentals/allrentalbike',
+    }),
+
+    // get all bikes for rental adimn
+    getAllBikes: builder.query({
+      query: () => 'rentals/rentalpayment',
     }),
 
 
@@ -155,6 +163,26 @@ export const baseApi = createApi({
       invalidatesTags: ['User'],
     }),
 
+    // add rental review
+    addReview: builder.mutation({
+      query: (body) => ({
+        url: 'reviews/addreviews',
+        method: 'POST',
+        body,
+      }),
+    }),
+
+    // get sinlge rental 
+
+    getSinglebikeReview: builder.query({
+      query: (id) => {
+        return (
+          `reviews/getpostreviews/${id}`
+        );
+      }
+    }),
+
+
 
   }),
 });
@@ -162,7 +190,10 @@ export const baseApi = createApi({
 export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdateProfileMutation,useGetBikesQuery,useCreateRentalMutation ,useGetAllRentalsQuery,useCreateBikesMutation,useDeleteBikesMutation, usePayRentalMutation,
   useReturnRentalMutation,useUpdateUserRoleMutation ,
   useGetAllUsersQuery,useUpdateBikeMutation, useDeleteUsersMutation,useAllrentalbikeQuery,
-  useGetSingleRentalQuery
+  useGetSingleRentalQuery,
+  useAddReviewMutation,
+  useGetSinglebikeReviewQuery,
+  useGetAllBikesQuery,
 
  } = baseApi;
 

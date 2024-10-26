@@ -77,7 +77,26 @@
 
 
 
-
+  @keyframes shimmer {
+    0% {
+      background-position: -400px 0;
+    }
+    100% {
+      background-position: 400px 0;
+    }
+  }
+  
+  .shimmer {
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+  .shimmer-animation {
+    background: linear-gradient(to right, #e0e0e0 8%, #f0f0f0 18%, #e0e0e0 33%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear, scale-up 2s infinite ease-in-out;
+    border-radius: 4px;
+  }
+  
 
 
 

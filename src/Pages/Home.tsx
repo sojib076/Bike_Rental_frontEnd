@@ -5,11 +5,12 @@ import FeaturedBikes from '@/components/Home/FeaturedBikes';
 import Testimonials from '@/components/Home/Testimonials';
 
 import Welcome from '@/components/Home/Welcome';
-import Contactus from './Contactus';
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import HelpSection from '@/components/Home/HelpSection';
+import NewBikesAnnouncement from '@/components/Home/NewBikesAnnouncement';
 
 
 
@@ -29,7 +30,7 @@ const Home = () => {
             <FeaturedBikes />
             <Testimonials/>
             <Welcome />
-            <Contactus/>
+            <NewBikesAnnouncement />
             <HelpSection
             title="Get Discount"
             description="Get discount on your By spaining the wheel , every time you spin the wheel you get a discount on your next ride"
