@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { Card, CardHeader, CardContent, CardFooter, } from '@/components/ui/card'; 
+import { Card, CardHeader, CardContent, CardFooter, } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -31,7 +31,7 @@ const UpdateBike = () => {
     const [updatebike, { isLoading }] = useUpdateBikeMutation();
 
     const bikeData = Data?.data as FormState
- 
+
     const [formData, setFormData] = useState({
         name: bikeData?.name || "",
         description: bikeData?.description || "",
@@ -41,7 +41,7 @@ const UpdateBike = () => {
         model: bikeData.model || "",
         brand: bikeData.brand || "",
         imgageurl: bikeData.imgageurl || "",
-        quantity:  bikeData.quantity || 0,
+        quantity: bikeData.quantity || 0,
     });
 
 
@@ -55,16 +55,16 @@ const UpdateBike = () => {
         });
     };
 
-    
-    const handleSubmit = async (e:any) => {
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-          await updatebike({ id: bikeData._id, body: formData }).unwrap();
-          toast.success('Bike Added Successfully');
+            await updatebike({ id: bikeData._id, body: formData }).unwrap();
+            toast.success('Bike Added Successfully');
         } catch (error) {
-          console.error("Failed to update bike:", error);
+            console.error("Failed to update bike:", error);
         }
-      };
+    };
 
     return (
         <div className="mx-auto lg:p-4">
@@ -160,40 +160,40 @@ const UpdateBike = () => {
                             />
                         </div>
                         <div className="grid gap-2">
-              <Label htmlFor="brand">Image url </Label>
-              <Input
-                id="imgageurl"
-                name="imgageurl"
-                type="text"
-                value={formData.imgageurl}
-                onChange={handleChange}
-                placeholder="Enter bike brand"
-                required
-              />
-
-              <Label htmlFor="quantity">Quantity</Label>
-                <Input
-                    id="quantity"
-                    name="quantity"
-                    type="number"
-                    value={formData.quantity}
-                    onChange={handleChange}
-                    placeholder="Enter bike quantity"
-                    required
-                />
-
-            </div>
+                            <Label htmlFor="brand">Image url </Label>
+                            <Input
+                                id="imgageurl"
+                                name="imgageurl"
+                                type="text"
+                                value={formData.imgageurl}
+                                onChange={handleChange}
+                                placeholder="Enter bike brand"
+                                required
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="quantity">Quantity</Label>
+                            <Input
+                                id="quantity"
+                                name="quantity"
+                                type="number"
+                                value={formData.quantity}
+                                onChange={handleChange}
+                                placeholder="Enter bike quantity"
+                                required
+                            />
+                        </div>
                     </form>
                 </CardContent>
 
                 <CardFooter className="flex justify-end gap-2 p-6">
                     <Button type="submit" onClick={handleSubmit}
-                    disabled={isLoading}
+                        disabled={isLoading}
                     >
-                      {
-                      
-                        isLoading ? <ButtonLoadin></ButtonLoadin> : "Update"
-                      }
+                        {
+
+                            isLoading ? <ButtonLoadin></ButtonLoadin> : "Update"
+                        }
                     </Button>
                 </CardFooter>
             </Card>

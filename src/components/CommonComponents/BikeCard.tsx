@@ -2,7 +2,7 @@ import { FC } from "react";
 import { FaCog, FaMotorcycle, FaRegCalendarAlt, FaTachometerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-interface BikeCardProps {
+export interface BikeCardProps {
   id: string;
   bikeName: string;
   imgageurl: string;

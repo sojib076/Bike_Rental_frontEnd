@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AdminUsersChart from "./Admin/AdminUsersChart";
 import CardsAdmin from "./Admin/CardsAdmin";
 import DashboardSkeleton from "@/components/CommonComponents/DashboardSkeleton";
+import Favoritebikes from "./User/Favoritebikes";
 
 const Dashboard = () => {
     const { data, isLoading } = useGetProfileQuery(undefined);
@@ -45,13 +46,16 @@ const Dashboard = () => {
                          
                           
                             {
-                                admin && (
+                                admin ? (
                                <> 
                                <CardsAdmin/>
                                 <AdminUsersChart />
 
                                </>
                                    
+                                ) : 
+                                (
+                                   <Favoritebikes/>
                                 )
                             }
                         

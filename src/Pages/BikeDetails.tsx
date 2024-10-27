@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Button } from "@/components/ui/button";
-import { useCreateRentalMutation, useGetSinglebikeReviewQuery } from "@/redux/api/api";
+import { useAddtoFavoritesMutation, useCreateRentalMutation, useGetProfileQuery, useGetSinglebikeReviewQuery } from "@/redux/api/api";
 import { HeartIcon } from "lucide-react";
 import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "sonner";
@@ -32,7 +32,9 @@ const BikeDetails = () => {
   const bike = loaderData.data as BikeDetailsType;
   const { auth } = useAppSelector((state) => state.userAuth);
   const [createRental, { isLoading }] = useCreateRentalMutation();
+  const [createfav , {isLoading:isFavLoading}] = useAddtoFavoritesMutation()
   const [count, setCount] = useState(1);
+  const { data:adminData } = useGetProfileQuery(undefined);
 
   const handleRentNow = async (startTime: string) => {
     try {
@@ -60,6 +62,19 @@ const BikeDetails = () => {
 
   const reviews = data?.data || [];
 
+  const handleAddToFav = async () => {
+    try {
+      const result = await createfav({
+        bikeId: bike._id
+      });
+      if (result?.data?.success) {
+        toast.success(result?.data?.message);
+      }
+    } catch (error) {
+      console.error("Error adding to Favorites:", error);
+      toast.error("An error occurred during the process.");
+    }
+  }
 
 
   return (
@@ -146,9 +161,9 @@ const BikeDetails = () => {
               }
 
 
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" onClick={handleAddToFav} disabled={isFavLoading || !auth || adminData?.data?.role==='admin'}>
                 <HeartIcon className="w-5 h-5 mr-2" />
-                Add to Favorites
+             Add to Favorites
               </Button>
 
             </div>

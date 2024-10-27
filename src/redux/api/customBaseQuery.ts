@@ -6,7 +6,7 @@ const customBaseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extr
     const token = state.userAuth.token; 
   
     const baseQuery = fetchBaseQuery({
-      baseUrl: 'http://localhost:5000/api/',
+      baseUrl: 'https://bike-rental-backend-delta.vercel.app/api/',
       prepareHeaders: (headers) => {
         if (token) {
           headers.set('Authorization', `Bearer ${token}`);

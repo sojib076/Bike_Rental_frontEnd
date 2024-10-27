@@ -188,6 +188,28 @@ export const baseApi = createApi({
       query: () => 'reviews/getuserreviews',
     }),
 
+    // add to favorites
+    
+    addtoFavorites: builder.mutation({
+      query: (body) => ({
+        url: 'favourite',
+        method: 'POST',
+        body,
+      }),
+    }),
+
+    getfavBikes: builder.query({
+      query: () => 'favourite',
+
+    }),
+// delete the fav 
+removeFavbike : builder.mutation({
+  query: (bikeId) => ({
+    url: `favourite/${bikeId}`,
+    method: 'DELETE',
+  }),
+  invalidatesTags: ['User'],
+})
 
 
   }),
@@ -200,7 +222,11 @@ export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdate
   useAddReviewMutation,
   useGetSinglebikeReviewQuery,
   useGetAllBikesQuery,
-  useGetUserReviewsQuery
+  useGetUserReviewsQuery,
+  useAddtoFavoritesMutation,
+  useGetfavBikesQuery,
+  useRemoveFavbikeMutation
+
 
  } = baseApi;
 

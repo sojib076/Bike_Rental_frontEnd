@@ -15,7 +15,7 @@ const BikeList = () => {
     const [searchFilters, setSearchFilters] = useState(filters); 
     const [page, setPage] = useState(1);
     
-    const limit = 10;
+    const limit = 3;
 
     const { data, isLoading, refetch } = useGetBikesQuery({
         page,
