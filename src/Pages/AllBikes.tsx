@@ -2,18 +2,19 @@
 import BikeCard from "@/components/CommonComponents/BikeCard";
 import BikeCardSkeleton from "@/components/CommonComponents/BikeCardSkeleton";
 import { useGetBikesQuery } from "@/redux/api/api";
-import { useState } from "react";
-import { FaMotorcycle, FaSearch } from "react-icons/fa";
+import {  useState } from "react";
+import { FaMotorcycle,  FaSearch } from "react-icons/fa";
 
 const BikeList = () => {
     const [filters, setFilters] = useState({
         brand: "",
         model: "",
         availability: "",
+        recentlyAdded:"" ,
     });
     const [searchFilters, setSearchFilters] = useState(filters); 
     const [page, setPage] = useState(1);
-    console.log(page);
+    
     const limit = 10;
 
     const { data, isLoading, refetch } = useGetBikesQuery({
@@ -21,13 +22,16 @@ const BikeList = () => {
         limit,
         brand: searchFilters.brand,
         model: searchFilters.model,
+        recentlyAdded: filters.recentlyAdded,
+
     });
 
     const bikes = data?.data?.bikes;
    
-    
     const currentPage = data?.data?.currentPage || 1;
     const totalPages = data?.data?.totalPages || 1;
+    
+  
 
     const handleFilterChange = (e: any) => {
         setFilters({
@@ -35,13 +39,12 @@ const BikeList = () => {
             [e.target.name]: e.target.value,
         });
     };
-
     const handleSearchClick = () => {
         setSearchFilters(filters);
         setPage(1); 
         refetch();
     };
-
+    
     const handleNextPage = () => {
         if (currentPage < totalPages) {
             setPage((prev) => prev + 1);
@@ -55,56 +58,91 @@ const BikeList = () => {
         }
     };
 
+    const [activeTab, setActiveTab] = useState("All");
+    
+
+    const handleTabChange = (tab: string) => {
+        
+        setFilters({
+            ...filters,
+            recentlyAdded: tab === "Recently" ? "true" : "false", 
+        });
+        console.log(filters.recentlyAdded);
+
+        setActiveTab(tab);
+   
+    };
+    
+
     return (
-        <div className="pb-10  dark:bg-black">
+        <div className="pb-10  dark:bg-black ">
             <h1 className="lg:text-[40px] leading-[48px] font-semibold uppercase dark:text-white text-center">
                 Available Bikes
             </h1>
 
-            {/* Filter Section */}
-            <div className="flex flex-wrap justify-center gap-4 w-[70%] mx-auto mt-4 lg:mt-10">
-                <div className="relative w-full md:w-auto">
-                    <FaMotorcycle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                    <input
-                        type="text"
-                        name="brand"
-                        value={filters.brand}
-                        onChange={handleFilterChange}
-                        placeholder="Filter by Brand"
-                        className="input-filter
-                         w-full md:w-64 
-                         
-                         pl-10 pr-4 py-2 border border-gray-300
-                         dark:bg-gray-800 dark:text-white
-                          rounded-lg focus:ring-2
-                           focus:ring-blue-500 
-                            
-                           "
-                           
+           <div className="lg:flex justify-between p-10"> 
+            
+           <div className="flex flex-col lg:w-[30%] bg-white dark:bg-gray-800 p-6 gap-6 h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-4">Filter Motorcycles</h3>
 
-                    />
-                </div>
-                <div className="relative w-full md:w-auto">
-                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                    <input
-                        type="text"
-                        name="model"
-                        value={filters.model}
-                        onChange={handleFilterChange}
-                        placeholder="Filter by Model"
-                        className="input-filter     dark:bg-gray-800 dark:text-white w-full md:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    />
-                </div>
-                <button
-                    onClick={handleSearchClick}
-                    className="px-4 py-2 bg-blue-500     dark:bg-gray-800 dark:text-white text-white rounded-md hover:bg-blue-600"
-                >
-                    Search
-                </button>
+            {/* Filter Tabs */}
+            <div className="flex justify-around mb-4">
+                {["All", "Recently"].map((tab) => (
+                    <button
+                        key={tab}
+                       
+                        onClick={() => handleTabChange(tab)}
+
+                        className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
+                            activeTab === tab
+                                ? "bg-blue-900 text-white"
+                                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                        } hover:bg-blue-500 hover:text-white`}
+                    >
+                        {tab}
+                    </button>
+                ))}
             </div>
 
+            {/* Filter Inputs */}
+            <div className="relative w-full md:w-auto">
+                <FaMotorcycle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
+                <input
+                    type="text"
+                    name="brand"
+                    value={filters.brand}
+                    onChange={handleFilterChange}
+                    placeholder="Filter by Brand"
+                    className="w-full md:w-64 pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+
+            <div className="relative w-full md:w-auto">
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
+                <input
+                    type="text"
+                    name="model"
+                    value={filters.model}
+                    onChange={handleFilterChange}
+                    placeholder="Filter by Model"
+                    className="w-full md:w-64 pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+
+            <button
+                onClick={handleSearchClick}
+                className="w-full md:w-64 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 font-semibold"
+            >
+                Search
+            </button>
+
+        
+        </div>
+
            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:p-20 p-5">
+          <div className="lg:w-[80%] mt-10 md:mt-10"> 
+
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-10  lg:w-[90%] mx-auto ">
                 {isLoading
                     ? Array(5)
                           .fill(0)
@@ -125,14 +163,19 @@ const BikeList = () => {
                               refetch={refetch}
                           />
                       ))}
-            </div>
 
-            {/* Pagination Controls */}
-            <div className="flex justify-center mb-5">
+                      
+            </div>
+            <div className="flex justify-center mt-5">
                 <button
                     onClick={handlePreviousPage}
                     disabled={page === 1}
-                    className="px-4 py-2 mx-2 bg-gray-200 hover:bg-gray-300 rounded disabled:opacity-50"
+                    className="px-4 py-2 mx-2 bg-gray-200  hover:bg-gray-300 rounded
+
+                     disabled:opacity-50
+                     dark:bg-gray-800 dark:text-white
+                     
+                     "
                 >
                     Previous
                 </button>
@@ -140,11 +183,21 @@ const BikeList = () => {
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
                     
-                    className="px-4 py-2 mx-2 bg-gray-200 hover:bg-gray-300 rounded disabled:opacity-50"
+                    className="px-4 py-2 mx-2 bg-gray-200 hover:bg-gray-300 rounded disabled:opacity-50
+                    dark:bg-gray-800 dark:text-white
+                    
+                    
+                    "
                 >
                     Next
                 </button>
             </div>
+          
+          </div>
+           </div>
+
+        
+          
         </div>
     );
 };

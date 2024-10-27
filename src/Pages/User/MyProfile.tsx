@@ -12,7 +12,7 @@ export default function MyProfile() {
     const profile = data?.data;
 
   return (
-    <Card className="w-full  mx-auto shadow-lg flex flex-col bg-black/10  inset-0  backdrop-blur-md   ">
+    <Card className="w-full  mx-auto shadow-lg flex flex-col bg-black/10  inset-0  backdrop-blur-md mt-40 lg:mt-0   ">
         <div className="w-full h-40 bg-blue-700"> 
 
         </div>

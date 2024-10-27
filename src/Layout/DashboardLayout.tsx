@@ -14,7 +14,7 @@ const DashboardLayout = () => {
         </div>
 
         {/* Main content area with left margin */}
-        <div className="ml-28  lg:mt-20 mt-10 lg:pl-28 p-2 w-[90%] min-h-screen">
+        <div className="lg:ml-28  lg:mt-20  lg:pl-28 p-2 w-[90%] min-h-screen  mt-96 " >
           <Outlet />
         </div>
       </div>

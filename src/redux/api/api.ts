@@ -46,10 +46,14 @@ export const baseApi = createApi({
           method: 'PUT',
         }),
     }),
-    GetAllUsers: builder.query({
-      query: () => 'users/allusers',
-      providesTags: ['User'],
-    }),
+    GetAllUsers: builder.query({query: ({ page = 1, limit = 10, }) => (
+      {
+        url: 'users/allusers',
+        params: { page, limit},
+      }
+    ),
+    providesTags: ['User'],
+  }),
     deleteUsers: builder.mutation({
       query: (id) => ({
         url: `users/${id}`,
@@ -64,11 +68,10 @@ export const baseApi = createApi({
 
   
 
- getBikes: builder.query({
-    query: ({ page = 1, limit = 10, brand = "", model = "" }) => (
+ getBikes: builder.query({query: ({ page = 1, limit = 10, brand = "", model = "" ,recentlyAdded ='' }) => (  
       {
         url: 'bikes',
-        params: { page, limit, brand, model },
+        params: { page, limit, brand, model ,recentlyAdded },
     }),
     providesTags: ['Bikes'],
 }),

@@ -90,7 +90,11 @@ const Footer = () => {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-400 py-1 font-bold">
-                <span className="text-gray-400">Copyright © 2024 Okay Bikes</span>
+                <span className="text-gray-400">Copyright © 
+                  {
+                    new Date().getFullYear()
+                  }
+                      Okay Bikes</span>
               </div>
             </div>
           </div>

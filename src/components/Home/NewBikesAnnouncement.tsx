@@ -6,7 +6,7 @@ export default function NewBikesAnnouncement() {
   return (
     <section className=" ">
       <div className=" mx-auto">
-        <Card className=" mx-auto overflow-hidden bg-transparent py-10 px-5">
+        <Card className=" mx-auto overflow-hidden dark:bg-black bg-transparent py-10 px-5">
           <div className="md:flex">
             <div className="md:w-1/2">
               <img

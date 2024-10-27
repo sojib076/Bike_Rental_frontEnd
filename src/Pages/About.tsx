@@ -39,34 +39,34 @@ export default function AboutUs() {
           Our mission is to empower individuals and businesses with innovative technology solutions that drive growth and success in the digital age.
         </p>
 
-        <div className="w-full px-4 lg:px-0  py-10 lg:mb-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="w-full px-4 lg:px-0 py-10 lg:mb-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {aboutItems.map((item, index) => (
-            <div key={index} className="flex flex-col items-center shadow-2xl shadow-gray-400 p-4 rounded-md 
-            
-          hover:scale-125 
-            " data-aos="zoom-in"
-              data-aos-delay={`${150 * index}`}>
-              <h2 className="text-2xl font-semibold mb-2 text-green-600 dark:text-white">{item.title}</h2>
-              <p>{item.content}</p>
+            <div
+              key={index}
+              className="flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 rounded-lg transform hover:scale-105"
+              data-aos="zoom-in"
+              data-aos-delay={`${150 * index}`}
+            >
+              <h2 className="text-2xl font-bold mb-3 text-green-600 dark:text-green-400">{item.title}</h2>
+              <p className="text-center text-gray-700 dark:text-gray-300">{item.content}</p>
             </div>
           ))}
         </div>
+
       </section>
-      <div data-aos="fade-up" className=" lg:p-20 mt-10 px-5">
-        <div className="flex flex-col-reverse lg:flex-row-reverse items-center">
-          <div className="lg:w-[50%] text-left">
-            <h1 className="text-xl md:text-4xl font-bold lg:mt-0 mt-10">
-              <span className="text-green-500"> Okay Bikes </span> Best in the Business
+      <div data-aos="fade-up" className="lg:p-20 mt-10 px-5">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-10 ">
+          <div className="lg:w-1/2 text-left space-y-6 lg:mt-0 mt-10">
+            <h1 className="text-xl md:text-4xl font-bold">
+              <span className="text-green-500">Okay Bikes</span> Best in the Business
             </h1>
-            <p className="py-6">
-
-              Okay Bikes is a leading motorcycle rental company in the world. We provide the best quality bikes for rent at affordable prices. We have a wide range of bikes to choose from. Our bikes are well maintained and serviced regularly. We have a team of experienced professionals who are dedicated to providing the best service to our customers. We are committed to providing the best quality bikes and excellent customer service. We have a large fleet of bikes to choose from, including sports bikes, cruisers, touring bikes, and more. We offer flexible rental options to suit your needs. Whether you need a bike for a day, a week, or a month, we have you covered. Renting a bike from Okay Bikes is easy and hassle-free. Just choose the bike you want, book it online, and pick it up from our location. We also offer delivery services to your location. Rent a bike from Okay Bikes and enjoy the freedom of the open road.
-
+            <p className="text-gray-700 dark:text-gray-300">
+              Okay Bikes is a leading motorcycle rental company in the world. We provide the best quality bikes for rent at affordable prices. Our wide range of well-maintained bikes includes sports bikes, cruisers, touring bikes, and more. With a dedicated team of professionals, we ensure excellent customer service and flexible rental options tailored to your needs. Renting a bike from Okay Bikes is easy and hassle-free. Choose your bike, book online, and pick it up from our location. We also offer delivery services. Enjoy the freedom of the open road with Okay Bikes!
             </p>
-            <div className="flex justify-between text-center">
+            <div className="flex justify-between text-center text-gray-800 dark:text-gray-200">
               <div>
                 <div className="text-sm md:text-2xl font-bold">10 years</div>
-                <div className="text-sm ">Experience</div>
+                <div className="text-sm">Experience</div>
               </div>
               <div>
                 <div className="text-sm md:text-2xl font-bold">2k</div>
@@ -74,27 +74,25 @@ export default function AboutUs() {
               </div>
               <div>
                 <div className="text-sm md:text-2xl font-bold">100%</div>
-                <div className=" text-sm">Client Satisfaction</div>
+                <div className="text-sm">Client Satisfaction</div>
               </div>
             </div>
           </div>
-          <div className="lg:w-[50%] w-[90%] ">
+          <div className="lg:w-1/2 w-full max-w-md">
             <img
-              src='
-                            
-                            https://media.istockphoto.com/id/1457093031/photo/motorcycle-parked-on-the-road.webp?s=1024x1024&w=is&k=20&c=LUscKlk2nmjANf9bLuFYXbCQM0leqgFQ3E9-dW-esiw=
-                            '
+              src="https://media.istockphoto.com/id/1457093031/photo/motorcycle-parked-on-the-road.webp?s=1024x1024&w=is&k=20&c=LUscKlk2nmjANf9bLuFYXbCQM0leqgFQ3E9-dW-esiw="
               alt="about"
-              className="rounded-lg shadow-lg w-full max-w-md"
+              className="rounded-lg shadow-lg w-full"
             />
           </div>
         </div>
       </div>
 
 
+
       <Separator className="my-8" />
 
-      {/* Team Section */}
+ 
       <section className="mb-12" data-aos="fade-up" data-aos-delay="100">
         <h2 className="text-3xl font-semibold mb-6">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -114,6 +112,7 @@ export default function AboutUs() {
               </CardContent>
             </Card>
           ))}
+          
         </div>
       </section>
 
@@ -121,35 +120,35 @@ export default function AboutUs() {
 
       {/* History & Milestones */}
       <section className="mb-16  bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-lg relative">
-  <h2 className="text-4xl font-extrabold mb-12 text-center text-green-500 z-20">Our Journey</h2>
-  
-  <div className="relative">
-    {milestones.map((milestone, index) => (
-      <div
-        key={index}
-        className={`relative flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''} mb-12`}
-        data-aos="fade-up"
-        data-aos-delay={`${200 * index}`}
-      >
-        <div className="lg:w-5/12 p-6 text-center lg:text-left bg-white dark:bg-gray-800 rounded-lg shadow-md relative z-10">
-          <h3 className="text-2xl font-bold text-green-500">{milestone.year}</h3>
-          <p className="mt-2 text-gray-700 dark:text-gray-300">{milestone.event}</p>
-        </div>
-        <div className="lg:w-2/12 flex justify-center items-center relative z-20">
-         
-  
-        </div>
-   
-      </div>
-    ))}
-  </div>
+        <h2 className="text-4xl font-extrabold mb-12 text-center text-green-500 z-20">Our Journey</h2>
 
-  <div className="absolute top-20 left-1/2 transform 
+        <div className="relative">
+          {milestones.map((milestone, index) => (
+            <div
+              key={index}
+              className={`relative flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''} mb-12`}
+              data-aos="fade-up"
+              data-aos-delay={`${200 * index}`}
+            >
+              <div className="lg:w-5/12 p-6 text-center lg:text-left bg-white dark:bg-gray-800 rounded-lg shadow-md relative z-10">
+                <h3 className="text-2xl font-bold text-green-500">{milestone.year}</h3>
+                <p className="mt-2 text-gray-700 dark:text-gray-300">{milestone.event}</p>
+              </div>
+              <div className="lg:w-2/12 flex justify-center items-center relative z-20">
+
+
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+        <div className="absolute top-20 left-1/2 transform 
   lg:block hidden
    -translate-x-1/2 h-[90%] w-1 bg-gray-300 dark:bg-gray-600 z-10
     
    "></div>
-</section>
+      </section>
 
 
 
