@@ -12,14 +12,15 @@ export default function MyProfile() {
     const profile = data?.data;
 
   return (
-    <Card className="w-full  mx-auto shadow-lg flex flex-col bg-black/10  inset-0  backdrop-blur-md mt-40 lg:mt-0   ">
+    <Card className="w-full  mx-auto shadow-lg flex flex-col bg-black/10 
+     inset-0  backdrop-blur-md mt-40 lg:mt-0   ">
         <div className="w-full h-40 bg-blue-700"> 
 
         </div>
    
       <div> 
       <CardHeader className=" relative flex flex-row items-center space-x-4 pb-4">
-        <Avatar className="w-40 h-40 absolute left-[40%] top-[-115%]">
+        <Avatar className="w-40 h-40 absolute lg:left-[40%] lg:top-[-115%] top-[-180%] left-[20%]">
           <AvatarImage src="/placeholder.svg?height=80&width=80" alt="Sarah Johnson" />
           <AvatarFallback>{profile.name?.charAt(0)}</AvatarFallback>
         </Avatar>

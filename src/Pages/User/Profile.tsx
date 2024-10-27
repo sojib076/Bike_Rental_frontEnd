@@ -76,7 +76,7 @@ const Profile = () => {
         dispatch(logoutUser())
     }
     return (
-        <Card className="w-full  mx-auto">
+        <Card className="w-full  mx-auto ">
             <CardHeader className="bg-gray-600 py-8 px-6 rounded-t-lg">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">

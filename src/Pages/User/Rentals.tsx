@@ -29,7 +29,7 @@ const RentalList = ({ rentals, showPayButton = false  }: { rentals: Rental[], sh
       <Card key={rental.userId}>
         <CardContent className="flex items-center justify-between p-4">
           <div>
-            <h3 className="font-semibold">{rental.bikeId.name}</h3>
+            <h3 className="font-semibold">{rental?.bikeId?.name}</h3>
             <p className="text-sm text-muted-foreground">Start: {rental.startTime}</p>
             <p className="text-sm text-muted-foreground">Return: {rental.returnTime}</p>
             <p className="text-sm font-bold ">Total: {rental.quantity}</p>

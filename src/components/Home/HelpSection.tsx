@@ -25,7 +25,7 @@ const HelpSection: FC<HelpSectionProps> = ({
     
       className="relative w-full h-[500px] bg-cover bg-center bg-no-repeat lg:mt-5 
     
-      dark:top-[-20px]
+      
     
       "
       style={{ backgroundImage: `url(${backgroundImage})` }}
