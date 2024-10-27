@@ -184,6 +184,9 @@ export const baseApi = createApi({
         );
       }
     }),
+    getUserReviews: builder.query({
+      query: () => 'reviews/getuserreviews',
+    }),
 
 
 
@@ -197,6 +200,7 @@ export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdate
   useAddReviewMutation,
   useGetSinglebikeReviewQuery,
   useGetAllBikesQuery,
+  useGetUserReviewsQuery
 
  } = baseApi;
 

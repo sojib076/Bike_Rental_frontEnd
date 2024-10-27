@@ -58,7 +58,7 @@ const Login = () => {
                 </h1>
 
             <div className="flex space-x-4 mb-8 ">
-                <Button onClick={() => setDefaultCredentials('user')} className="bg-blue-900/50 hover:bg-black dark:text-white">
+                <Button onClick={() => setDefaultCredentials('user')} className="bg-blue-900 hover:bg-black dark:text-white">
                     User
                 </Button>
                 <Button onClick={() => setDefaultCredentials('admin')} className="
