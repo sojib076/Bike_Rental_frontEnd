@@ -19,6 +19,7 @@ type FormState = {
   model: string;
   brand: string;
   imgageurl: string;
+  quantity: number;
 };
 const AddBikePage = () => {
   const [createbike, { isLoading }] = useCreateBikesMutation();
@@ -33,7 +34,8 @@ const AddBikePage = () => {
     cc: 0,
     year: new Date().getFullYear(),
     model: '',
-    brand: ''
+    brand: '',
+    quantity: 0,
   });
 
   const handleChange = (e: any) => {
@@ -165,6 +167,18 @@ const AddBikePage = () => {
                 value={formData.imgageurl}
                 onChange={handleChange}
                 placeholder="Enter bike brand"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="quantity">Quantity</Label>
+              <Input
+                id="quantity"
+                name="quantity"
+                type="number"
+                value={formData.quantity}
+                onChange={handleChange}
+                placeholder="Enter bike quantity"
                 required
               />
             </div>

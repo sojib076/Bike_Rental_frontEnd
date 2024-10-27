@@ -22,6 +22,7 @@ type FormState = {
     model: string;
     imgageurl: string;
     brand: string;
+    quantity: number;
 };
 
 const UpdateBike = () => {
@@ -40,6 +41,7 @@ const UpdateBike = () => {
         model: bikeData.model || "",
         brand: bikeData.brand || "",
         imgageurl: bikeData.imgageurl || "",
+        quantity:  bikeData.quantity || 0,
     });
 
 
@@ -168,6 +170,18 @@ const UpdateBike = () => {
                 placeholder="Enter bike brand"
                 required
               />
+
+              <Label htmlFor="quantity">Quantity</Label>
+                <Input
+                    id="quantity"
+                    name="quantity"
+                    type="number"
+                    value={formData.quantity}
+                    onChange={handleChange}
+                    placeholder="Enter bike quantity"
+                    required
+                />
+
             </div>
                     </form>
                 </CardContent>
