@@ -1,42 +1,73 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 
-export default function NewBikesAnnouncement() {
+import { ArrowRight, Zap } from 'lucide-react'
+
+const newBike = {
+  name: "ElectroGlide Pro",
+  type: "Electric",
+  description: "Experience the future of cycling with our latest electric bike. Featuring a powerful motor, extended range battery, and smart connectivity.",
+  image: "/placeholder.svg?height=300&width=400",
+  features: ["500W Motor", "80km Range", "Smart Display", "Quick Charge"],
+}
+
+export default function NewBikeAnnouncement() {
   return (
-    <section className=" ">
-      <div className=" mx-auto">
-        <Card className=" mx-auto overflow-hidden dark:bg-black bg-transparent py-10 px-5">
-          <div className="md:flex">
-            <div className="md:w-1/2">
-              <img
-                src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN1enVraSUyMGJpa2V8ZW58MHx8MHx8fDA%3D"
-                alt="New bikes in our showroom"
-               
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+    <section className="py-16 
+    pt-20
+   
+      dark:mt-0
+    bg-gradient-to-tr
+      dark:from-slate-950 dark:to-slate-900
+
+    from-sky-600 to-gray-400
+    
+    ">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
+          <div className="lg:w-1/2">
+            {/* <Badge className="mb-4 bg-yellow-400 text-yellow-900">New Arrival</Badge> */}
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Introducing the {newBike.name}
+            </h2>
+            <p className="text-xl text-white mb-6">{newBike.description}</p>
+            <ul className="grid grid-cols-2 gap-4 mb-8">
+              {newBike.features.map((feature, index) => (
+                <li key={index} className="flex items-center text-white">
+                  <Zap className="h-5 w-5 mr-2 text-yellow-400" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+              Reserve Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+          <div className="lg:w-1/2 w-[100%]">
+            <Card className="w-full lg:max-w-md mx-auto">
               <CardHeader>
-                <CardTitle className="text-2xl md:text-3xl font-bold mb-2">New Bikes Have Arrived!</CardTitle>
+                <img
+                  src={newBike.image}
+                  alt={newBike.name}
+                  width={400}
+                  height={300}
+                  className="rounded-t-lg"
+                />
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Experience our latest collection of cutting-edge bikes. Visit our offline showroom to see and feel the quality for yourself.
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-6">
-                  <li>Wide range of new models</li>
-                  <li>Expert staff to assist you</li>
-                  <li>Test rides available</li>
-                </ul>
+                <CardTitle>{newBike.name}</CardTitle>
+                <CardDescription>{newBike.type}</CardDescription>
               </CardContent>
               <CardFooter>
-                <Button className="w-full md:w-auto">Visit Our Showroom</Button>
+                <Button className="w-full">View Details</Button>
               </CardFooter>
-            </div>
+            </Card>
           </div>
-        </Card>
+        </div>
       </div>
     </section>
   )
 }
+

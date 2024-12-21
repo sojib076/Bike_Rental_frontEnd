@@ -25,7 +25,7 @@ const SearchResultsPage = () => {
   
  
     return (
-        <div className="pb-20 mt-20 dark:bg-black dark:mt-16">
+        <div className="pb-20 mt-20 dark:bg-black ">
             <h1 className="lg:text-[40px]
              leading-[48px] font-semibold uppercase lg:mt-5
              text-center

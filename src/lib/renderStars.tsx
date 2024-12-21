@@ -1,8 +1,8 @@
 import { Star, StarIcon } from 'lucide-react';
 
 
-const renderStars = (rating: number) => {
-  const stars = [];
+const renderStars = (rating: number): JSX.Element[] => {
+  const stars: JSX.Element[] = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
       i <= rating ? (

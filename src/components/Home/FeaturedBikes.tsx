@@ -25,20 +25,26 @@ const FeaturedBikes = () => {
     });
     const availableBikes = data?.data?.bikes as FeaturedBikesProps[];
 
-    
+
 
     return (
-        <div className="lg:px-12  p-2 font-[Oswald] overflow-hidden my- dark:my-0 bg-background dark:bg-dark-background">
+        <div className="
+        py-20
+
+        bg-gradient-to-tr
+      dark:from-slate-950 dark:to-slate-900
+     
+        lg:px-12  p-2 font-[Oswald] overflow-hidden   ">
             <div>
                 <h1
-                className="bg-green-500
+                    className="bg-green-500
 
                 lg:w-fit w-[50%] lg:mx-0  mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center text-black dark:text-black">
                     Featured Bikes
                 </h1>
-                <h1 
-              
-                className="lg:text-[40px] text-center text-2xl
+                <h1
+
+                    className="lg:text-[40px] text-center text-2xl
                 lg:text-left
                  leading-[48px] font-semibold uppercase lg:mt-5 text-primary dark:text-white
                 lg:mb-7
@@ -54,9 +60,9 @@ const FeaturedBikes = () => {
                             ? Array(3)
                                 .fill(0)
                                 .map((_, index) => (
-                                    <CarouselItem 
-                                
-                                    
+                                    <CarouselItem
+
+
                                         key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
                                         <BikeCardSkeleton />
                                     </CarouselItem>
@@ -64,9 +70,9 @@ const FeaturedBikes = () => {
 
                             : availableBikes && availableBikes.map((bike) => (
                                 <CarouselItem
-                                
-                                
-                                key={bike._id} className="pl-1 md:basis-1/2 lg:basis-1/3">
+
+
+                                    key={bike._id} className="pl-1 md:basis-1/2 lg:basis-1/3">
                                     <BikeCard
                                         id={bike._id}
                                         bikeName={bike.name}

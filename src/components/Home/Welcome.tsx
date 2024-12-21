@@ -1,75 +1,84 @@
-import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-const Welcome = () => {
+import { Bike, Clock, Leaf, Shield } from 'lucide-react'
+
+const reasons = [
+    {
+        icon: Bike,
+        title: "Wide Selection",
+        description: "Choose from our extensive range of high-quality bikes for every type of rider and terrain.",
+    },
+    {
+        icon: Clock,
+        title: "Flexible Rentals",
+        description: "Rent by the hour, day, or week. Our flexible options fit your schedule and needs.",
+    },
+    {
+        icon: Shield,
+        title: "Safety First",
+        description: "All our bikes are regularly maintained and come with complimentary safety gear.",
+    },
+    {
+        icon: Leaf,
+        title: "Eco-Friendly",
+        description: "Support sustainable tourism and reduce your carbon footprint while exploring.",
+    },
+]
+
+export default function WhyChooseUs() {
     return (
-        <div className=" dark:bg-black dark:text-white text-black dark:py-10 pb-20">
-            <div className="lg:px-20 p-5 font-[Oswald] mt-5 dark:mt-0 lg:mt-0">
-                <h1 
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                 
-                className="bgRed 
-                lg:w-fit w-[50%] lg:mx-0 mx-auto py-2 px-4 text-sm font-bold lg:text-left text-center
-                 dark:text-white text-black">
-                    Why Choose Us
-                </h1>
+        <section className="py-20
 
-                <div className="lg:grid grid-cols-2 mt-5 items-center">
-                    <div className="">
-                        <h1 
-                            data-aos="fade-up"
-                            data-aos-delay="400"
-                            data-aos-duration="800"
-                        className="lg:text-[40px] text-xl lg:text-left text-center lg:leading-[48px] font-semibold uppercase dark:text-white">
-                            Helps you to find your next motorbike easily
-                        </h1>
-                    </div>
-                    <p 
-                    
-                        data-aos="fade-up"
-                        data-aos-delay="600"
-                    
-                    className="lg:w-[80%] lg:h-[90px] text-justify lg:my-0 my-2 dark:text-white">
-                        We have the best price to help you find bikes easily. We have the best prices on the market and are the best in the industry.
+     bg-gradient-to-tr
+      dark:from-slate-950 dark:to-slate-900
+        
+    ">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    {/* <Badge className="mb-4" variant="secondary">Our Advantages</Badge> */}
+                    <h2 className="text-3xl font-bold mb-4">Why Choose BikeRent?</h2>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Experience the best in bike rentals with our top-notch service and unbeatable benefits.
                     </p>
                 </div>
-                <div>
-                    {/* List of our best keys */}
-                    <div className="grid grid-cols-3 lg:gap-5 gap-4 mt-5">
-                        <div 
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                            data-aos-duration="800"
-                        className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
-                            <p>Best Price</p>
-                        </div>
-                        <div 
-                            data-aos="fade-up"
-                            data-aos-delay="200"
-                            data-aos-duration="800"
-                        className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
-                            <p>100+ Bikes</p>
-                        </div>
-                        <div 
-                            data-aos="fade-up"
-                            data-aos-delay="300"
-                            data-aos-duration="800"
-                        className="text-center border-2 border-white rounded-md hover:scale-90 cursor-pointer smoothingAnimation bg-black text-white">
-                            <p>Best Quality</p>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
+                    {reasons.map((reason, index) => (
+                        <Card key={index} className="text-center 
+                        h-[200px]
+                        rounded-xl
+                        hover:shadow-lg transition-shadow duration-300">
+                            <CardHeader>
+                                <div className=" 
+                                    dark:bg-black/80
+                                    bg-gray-50
+                                relative top-[-50px] w-16 h-16 
+                                rounded-full flex items-center
+                                 justify-center mx-auto 
+                             
+                                    
+                                 ">
+                                    <reason.icon className="
+                                    
+                                    h-8 w-8 text-black
+                                        dark:text-white
+                                    " />
+                                </div>
+                                <CardTitle
+                                    className=" 
+                                        relative top-[-40px]
+                                    "
+                                >{reason.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-gray-600
+                                    relative top-[-50px]
+                                    text-center
+                                ">{reason.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
                 </div>
-
-                <Link
-                    to={'/about'}
-                    className="text-[#FFA15A] font-bold text-lg w-fit hover:translate-y-[-10px] hover:border-b-2 hover:border-red-500 smoothingAnimation h-7 lg:mt-5 lg:block hidden"
-                >
-                    Learn More About Us
-                </Link>
             </div>
-            <img src="https://autobike.templaza.net/wp-content/uploads/2023/05/bg-video.jpg" alt="" />
-        </div>
-    );
-};
-
-export default Welcome;
+        </section>
+    )
+}

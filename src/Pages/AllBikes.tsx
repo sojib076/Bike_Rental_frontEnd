@@ -75,17 +75,17 @@ const BikeList = () => {
     
 
     return (
-        <div className="pb-10  dark:bg-black ">
+        <div className=" dark:bg-gray-900 bg-gray-100 ">
             <h1 className="lg:text-[40px] leading-[48px] font-semibold uppercase dark:text-white text-center">
                 Available Bikes
             </h1>
 
-           <div className="lg:flex justify-between p-10"> 
+           <div className="lg:flex justify-between "> 
             
            <div className="flex flex-col lg:w-[30%] bg-white dark:bg-gray-800 p-6 gap-6 h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
             <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-4">Filter Motorcycles</h3>
 
-            {/* Filter Tabs */}
+            
             <div className="flex justify-around mb-4">
                 {["All", "Recently"].map((tab) => (
                     <button
@@ -104,7 +104,7 @@ const BikeList = () => {
                 ))}
             </div>
 
-            {/* Filter Inputs */}
+           
             <div className="relative w-full md:w-auto">
                 <FaMotorcycle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
                 <input
@@ -142,7 +142,9 @@ const BikeList = () => {
            
           <div className="lg:w-[80%] mt-10 md:mt-10"> 
 
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-10  lg:w-[90%] mx-auto ">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-10 
+            
+          lg:w-[90%] mx-auto ">
                 {isLoading
                     ? Array(5)
                           .fill(0)
@@ -194,6 +196,7 @@ const BikeList = () => {
             </div>
           
           </div>
+          
            </div>
 
         

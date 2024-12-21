@@ -9,8 +9,9 @@ import Welcome from '@/components/Home/Welcome';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
-import HelpSection from '@/components/Home/HelpSection';
+
 import NewBikesAnnouncement from '@/components/Home/NewBikesAnnouncement';
+import CallToAction from '@/components/Home/CallToAction';
 
 
 
@@ -25,22 +26,28 @@ const Home = () => {
 
 
     return (
-        <div >
+        <div
+          className="overflow-x-hidden 
+      bg-gray-100 dark:bg-gray-800
+
+
+
+
+           
+          "
+        >
             <Banner />
             <FeaturedBikes />
-            <Testimonials/>
-            <Welcome />
             <NewBikesAnnouncement />
-            <HelpSection
-            title="Get Discount"
-            description="Get discount on your By spaining the wheel , every time you spin the wheel you get a discount on your next ride"
-            buttonText="Spin the wheel
-            "
-            backgroundImage='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRufbmc6jOs9dDUUB4h40zC0GUezdVy3QwbZA&s'
+              <Welcome />
+            <Testimonials/>
+          
+         
+      
 
-            />
- 
-        
+      
+  
+              <CallToAction/>
         </div>
     );
 };

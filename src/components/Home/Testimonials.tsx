@@ -1,3 +1,5 @@
+import {  QuoteIcon } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Testimonials = () => {
@@ -26,40 +28,55 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="lg:pb-20 lg:px-20 font-[Oswald]  dark:bg-black py-20  ">
-           <h1 className="lg:text-[40px] text-center text-2xl lg:text-left
-                 leading-[48px] font-semibold uppercase lg:mt-5 dark:mt-0  text-primary dark:text-white ">
-                 Testimonials
-                </h1>
+        <div className="lg:pb-20 lg:p-20 font-[Oswald]   bg-gradient-to-tr
+            
 
-            <Carousel 
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="800"
-            className="lg:w-full mx-auto" autoScrollInterval={1000}>
+      dark:from-slate-950 dark:to-slate-900  ">
+            <h1 className="lg:text-[40px] text-center text-2xl lg:text-left
+                 leading-[48px] font-semibold uppercase    text-primary dark:text-white ">
+                Testimonials
+            </h1>
+
+            <Carousel
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="800"
+                className="lg:w-full mx-auto" autoScrollInterval={1000}>
                 <CarouselContent className="-ml-1 lg:py-10">
                     {testimonyjson.map((test, index) => (
                         <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                            <div className="p-6 bg-gray-800 h-60 py-10 dark:bg-gray-700
-                            
-                            rounded-lg shadow-lg relative hover:shadow-xl transition-shadow duration-300">
-                                <div className="text-center">
-                                    <img
-                                        src="https://i.ibb.co.com/616X09w/sojibdas-website-desinger.png"
-                                        className="w-10 h-10 object-cover rounded-full mx-auto mb-4 border-2 border-blue-500"
-                                        alt="Testimonial Avatar"
-                                    />
-                                    <h3 className="text-xl font-semibold text-white dark:text-gray-100">
-                                        {test.name}
-                                    </h3>
-                                    <p className="text-sm text-gray-300 dark:text-gray-400">
-                                        {test.job}
-                                    </p>
-                                </div>
-                                <p className="mt-4 text-gray-200 dark:text-gray-300 italic text-center">
-                                    {test.testimony}
-                                </p>
-                            </div>
+                            <Card className="w-full max-w-md mx-auto overflow-hidden shadow-lg">
+                                <CardContent className="p-0">
+                                    <div className="relative">
+                                        <div className="absolute inset-0 
+                                        bg-gradient-to-br
+                                         from-black
+                                          to-gray-600 
+                                          opacity-90" />
+                                        <div className="relative z-10 p-8">
+                                            <QuoteIcon className="w-12 h-12 mb-4 text-white opacity-50" />
+                                            <blockquote className="mb-4 text-xl font-medium leading-relaxed text-white">
+                                                    {test.testimony}
+                                            </blockquote>
+                                            <div className="flex items-center">
+                                                <div className="flex-shrink-0">
+                                                    <img className="w-12 h-12 rounded-full" src="https://i.ibb.co.com/616X09w/sojibdas-website-desinger.png" alt="Sojib Das" />
+                                                    
+                                                </div>
+                                                <div className="ml-4">
+                                                    <p className="text-lg font-semibold text-white">{
+                                                        test.name
+                                                        }</p>
+                                                    <p className="text-sm text-indigo-200">{
+                                                        test.job
+                                                        }</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
                         </CarouselItem>
                     ))}
                 </CarouselContent>

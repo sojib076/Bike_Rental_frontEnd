@@ -11,7 +11,7 @@ import Loading from "@/components/CommonComponents/Loading";
 
 export type Rental = {
   userId: string
-  id: number;
+  _id: string;
   bikeName: string;
   startTime: string;
   returnTime: string;

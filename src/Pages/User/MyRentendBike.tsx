@@ -63,7 +63,7 @@ const MyRentedBike = () => {
             <h2 className="text-xl font-semibold mb-4">Paid Rentals</h2>
             <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-4">
               {paidRentals?.map((rental: Rental) => (
-                <div key={rental?.id} className=" dark:bg-black bg-gray-100 p-4 rounded-md">
+                <div key={rental?._id} className=" dark:bg-black bg-gray-100 p-4 rounded-md">
                   <div className="flex justify-between">
                     <p className="text-lg font-semibold">{rental?.bikeId?.name}</p>
                    
@@ -115,7 +115,9 @@ const MyRentedBike = () => {
                 
 
             <textarea
-              className="w-full p-2 border rounded-md mb-4"
+              className="w-full
+                dark:bg-gray-800
+              p-2 border rounded-md mb-4"
               rows={4}
               placeholder="Write your review here..."
               value={reviewText}

@@ -13,7 +13,7 @@ export interface BikeCardProps {
   year: number;
   maxSpeed: number;
   price: number;
-  refetch ?: () => void;
+  refetch?: () => void;
 }
 
 const BikeCard: FC<BikeCardProps> = ({
@@ -29,15 +29,14 @@ const BikeCard: FC<BikeCardProps> = ({
   price,
 }) => {
 
-  // const [detailslogin, setDetailsLogin] = useState(false);
-
-
-
 
 
   return (
-    <div className="relative w-full lg:h-[550px] bg-black cursor-pointer lg:p-5 px-3 
-    border border-gray-800 dark:border-gray-700 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105
+    <div className="relative lg:max-w-[420px] pb-2 lg:h-[550px] bg-black cursor-pointer lg:p-5 px-3 
+    border border-gray-800 dark:border-gray-700
+     rounded-lg shadow-lg 
+     transition-transform duration-300 
+     transform hover:scale-105
     
     ">
       <div className="grid grid-cols-1 items-center px-5 pt-1">
@@ -45,11 +44,12 @@ const BikeCard: FC<BikeCardProps> = ({
       </div>
       <div className="relative my-2 overflow-hidden">
         <img src={imgageurl} alt={bikeName} className=" 
-        w-full h-[200px] object-cover rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105
+        w-full h-[180px] object-cover rounded-lg 
+        shadow-lg transition-transform duration-300 transform hover:scale-105
         
         " />
-        <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${quantity>0 ? 'bg-green-600' : 'bg-red-600'}`}>
-          {quantity> 1 ? 'Available' : 'Not Available'}
+        <div className={`absolute top-[10%] right-[-65px] transform rotate-45 text-white text-sm font-bold py-2 px-20 text-center ${quantity > 0 ? 'bg-green-600' : 'bg-red-600'}`}>
+          {quantity > 1 ? 'Available' : 'Not Available'}
         </div>
       </div>
       <p className="text-white dark:text-gray-300 lg:hidden">
@@ -58,7 +58,9 @@ const BikeCard: FC<BikeCardProps> = ({
       <p className="text-white dark:text-gray-300 lg:flex hidden">
         {description.length > 50 ? description.substring(0, 50) + '...' : description}
       </p>
-      <div className="bg-black text-white dark:bg-gray-800 dark:text-gray-300 mt-2 dark:p-1">
+      <div className="bg-black  text-white dark:bg-gray-800 dark:text-gray-300 mt-2 
+        p-5
+      ">
         <div className="grid grid-cols-2 gap-4">
           <div className="grid grid-cols-4 items-center">
             <FaMotorcycle className="text-red-600 text-xl mr-2" />
@@ -90,7 +92,7 @@ const BikeCard: FC<BikeCardProps> = ({
           </div>
         </div>
       </div>
-      <hr className="mt-5 border-gray-200 dark:border-gray-700" />
+      <hr className=" mt-1 rounded-full border-gray-200 dark:border-gray-700" />
       <div className="bg-black dark:bg-gray-800 text-white dark:text-gray-300 p-4 grid grid-cols-2 items-center">
         <div>
           <p className="text-gray-400 dark:text-gray-500 text-xs">Hourly Price</p>
@@ -99,14 +101,14 @@ const BikeCard: FC<BikeCardProps> = ({
         </div>
         <Link
           to={`/bike/${id}`}
-       
+
           className="bg-green-600 hover:bg-green-700 text-center text-sm font-bold py-2 px-4 rounded-lg transition-colors duration-300"
         >
           View Details
         </Link>
       </div>
 
-      
+
     </div>
   );
 };

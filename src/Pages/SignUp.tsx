@@ -53,7 +53,7 @@ const Signup = () => {
 
     return (
         <div className=" dark:bg-black bg-white h-[100vh]">
-            <div className="font-[Oswald] flex lg:items-center justify-center lg:mt-20 dark:mt-16 mt-16">
+            <div className="font-[Oswald] flex lg:items-center justify-center lg:mt-20  mt-16">
                 <Card>
                     <CardContent className='lg:w-[500px] w-[55vh] py-5'>
                         <div className="space-y-2">

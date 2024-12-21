@@ -1,5 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { Button } from "../ui/button";
+
 import SearchBar from "./Seacrchform";
 
 import AOS from "aos";
@@ -57,13 +57,7 @@ const Banner = () => {
                                         data-aos-delay="600"
                                         />
 
-                                        <Button
-                                            data-aos="fade-up"
-                                            data-aos-delay="800"
-                                            data-aos-duration="800"
-                                        variant='outline' className="text-black dark:text-white hover:scale-90 w-fit smoothingAnimation mt-5 lg:ml-0 ml-[40%] border-black dark:border-white">
-                                            Book Now
-                                        </Button>
+                                       
                                     </div>
                                 </div>
                             </div>
