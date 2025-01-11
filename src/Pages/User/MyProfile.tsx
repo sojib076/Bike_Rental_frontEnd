@@ -27,7 +27,7 @@ export default function MyProfile() {
 
   const reviews = reviewData?.data;
 
-  console.log(reviews);
+
   
 
  

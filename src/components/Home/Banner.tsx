@@ -31,7 +31,7 @@ const Banner = () => {
                                         <h1 
                                             data-aos="fade-up"
                                         
-                                        className="lg:text-xl text-sm font-extrabold text-center lg:text-left text-white dark:text-gray-300">
+                                        className=" btn-shine lg:text-xl text-sm font-extrabold text-center lg:text-left text-white dark:text-gray-300">
                                             Need Bike For Short Time?
                                         </h1>
                                         <h2 

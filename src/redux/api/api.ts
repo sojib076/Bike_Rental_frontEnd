@@ -106,6 +106,16 @@ export const baseApi = createApi({
      
     }),
 
+    // get related bikes
+    getRelatedBikes: builder.query({
+      query: (id) => (
+        {
+          url: `bikes/related/${id}`,
+          method: 'GET',
+        }
+      ),
+    }),
+
 
     // rental api endpoint
     createRental: builder.mutation({
@@ -225,13 +235,9 @@ export const { useSignUpMutation, useLoginMutation, useGetProfileQuery,useUpdate
   useGetUserReviewsQuery,
   useAddtoFavoritesMutation,
   useGetfavBikesQuery,
-  useRemoveFavbikeMutation
+  useRemoveFavbikeMutation,
+  useGetRelatedBikesQuery
 
 
  } = baseApi;
 
-// "Rental Routes": {
-//       "Create Rental": {
-//         "method": "POST",
-//         "route": "/api/rentals"
-//       },
