@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, PhoneCall, Shield,  } from 'lucide-react'
+import { Link } from "react-router-dom"
 type profile = {
   data: profile
   _id:  string;
@@ -33,7 +34,15 @@ export default function ProfileHeader({profile}:{
             }</CardTitle>
           <CardDescription>Bike Enthusiast</CardDescription>
         </div>
-        <Button className="ml-auto">Edit Profile</Button>
+       
+        <Button className="ml-auto">
+        <Link
+          to={'/dashboard/updateprofile'}
+        >
+          Edit Profile
+        </Link>
+        </Button>
+     
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap justify-center sm:justify-start gap-4">

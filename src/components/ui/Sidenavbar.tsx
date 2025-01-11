@@ -35,12 +35,7 @@ const Sidenavbar = () => {
       icon: User,
       variant: "default",
     },
-    {
-      title: "Update Profile",
-      to: "/dashboard/updateprofile",
-      icon: User,
-      variant: "default",
-    },
+ 
     {
       title: "Rentals",
       to: "/dashboard/rentals",

@@ -18,7 +18,7 @@ export default function RentalHistory({reviews}:{reviews: review[]}) {
             <TableRow>
               <TableHead>Bike</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Duration</TableHead>
+              <TableHead>Rating </TableHead>
               <TableHead>comment</TableHead>
             </TableRow>
           </TableHeader>
