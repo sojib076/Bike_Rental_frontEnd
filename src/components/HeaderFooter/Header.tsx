@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { MenuIcon, Moon } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { logoutUser } from "@/redux/features/AuthUser";
+import {  useAppSelector } from "@/redux/hooks";
+
+import LogoutButton from "./logoutButton";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const dispatch = useAppDispatch();
+  
     const { auth } = useAppSelector((state) => state.userAuth);
     const guestLinks = [
         { path: '/home', label: 'Home' },
@@ -51,7 +52,9 @@ const Header = () => {
                 </nav>
                 <div className="flex items-center gap-4 lg:mr-16">
                     {auth && (
-                        <DropdownMenu>
+                        <DropdownMenu
+                    
+                        >
                             <DropdownMenuTrigger asChild>
                                 <Avatar className="h-9 w-9">
                                     <AvatarImage src="/placeholder-user.jpg" alt="User Avatar" />
@@ -59,13 +62,14 @@ const Header = () => {
                                     <span className="sr-only">Toggle user menu</span>
                                 </Avatar>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="dark:bg-gray-800">
+                            <DropdownMenuContent className="dark:bg-gray-800 w-36">
                                 <Link to={'/dashboard/profile'}>
                                     <DropdownMenuItem className="cursor-pointer dark:text-white">My Account</DropdownMenuItem>
                                 </Link>
                                 <DropdownMenuItem className="cursor-pointer dark:text-white">Settings</DropdownMenuItem>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={() => dispatch(logoutUser())} className="cursor-pointer dark:text-white">Logout</DropdownMenuItem>
+                               
+                                <DropdownMenuItem className="cursor-pointer dark:text-white"><LogoutButton/></DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) }
